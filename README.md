@@ -1,14 +1,11 @@
 # BudgetPal
 
-👩🏻‍💻 View an example of this section [here](https://github.com/kera-cudmore/Bully-Book-Club#bully-book-club-website)
+Welcome to BudgetPal!
+This app is to help managing personal expenses.
 
-Add a Blurb about the site here, what does it do, why did you build it?
+[App Preview](#)
 
-Add an image of the finished site here. I like to use [amiresponsive](https://ui.dev/amiresponsive) to get an image of my site on all device sizes, and amiresponsive allows you to click links on the page and scroll, so each device can show a different element of your site.
-
-Add a link to the live site here, for Milestone 1 this will be the GitHub Pages Link from when you deployed the site.
-
-If you want to add optional [shields.io](https://shields.io) badges to your README, I like to add them to this section.
+[Live link](#)
 
 ---
 
@@ -17,8 +14,16 @@ If you want to add optional [shields.io](https://shields.io) badges to your READ
 - [BudgetPal](#budgetpal)
   - [CONTENTS](#contents)
   - [User Experience (UX)](#user-experience-ux)
+    - [Initial Discussion](#initial-discussion)
+      - [Key information for the site](#key-information-for-the-site)
     - [User Stories](#user-stories)
+      - [Client Goals](#client-goals)
+      - [First Time Visitor Goals](#first-time-visitor-goals)
+      - [Returning Visitor Goals](#returning-visitor-goals)
+      - [Frequent Visitor Goals](#frequent-visitor-goals)
   - [Design](#design)
+  - [Database](#database)
+  - [Front-end](#front-end)
     - [Colour Scheme](#colour-scheme)
     - [Typography](#typography)
     - [Imagery](#imagery)
@@ -48,13 +53,47 @@ If you want to add optional [shields.io](https://shields.io) badges to your READ
 
 👩🏻‍💻 View an example of a completed user experience section [here](https://github.com/kera-cudmore/Bully-Book-Club#user-experience-ux)
 
+### Initial Discussion
+
+BudgetPal is a personal expenses manager wich is created to help kepping track of personal expences such as balance, income, expenses + categories, financial goals and
+saving account interest calculation.
+The project was inspired by a personal idea which was managing my personal expenses in a more interactive way other than using an excel sheet.
+
+#### Key information for the site
+
+- What is the current Balance of our personal income/expenses.
+- What are the expenses amount and categories the money was spent on by date.
+- What was the balance by the end of the month which is going to be rolled over to the next month.
+- The amount has been transferred to the savings account.
+- The interest rate showing on the savings account.
+- Budget goals such as summer holiday, car purchase etc with the amount required and compared with the savings account.
+- useful graphics to represent the data.
+
 ### User Stories
 
-Add your user stories here. You want to include first time visitors and returning visitors here as a minimum. Think about each group, and the experience and journey you want them to have on your site. It really helps to think about this before you start coding, and will really help with creating your wireframes.
+#### Client Goals
+
+#### First Time Visitor Goals
+
+#### Returning Visitor Goals
+
+#### Frequent Visitor Goals
+
+---
 
 ## Design
 
-👩🏻‍💻 View an example of a completed design section [here](https://github.com/kera-cudmore/earth-day-hackathon-2022#Design)
+## Database
+
+- Database design considerations
+
+[Database design link](#)
+
+## Front-end
+
+- Front end design considerations
+
+[Front end design link](#)
 
 ### Colour Scheme
 
