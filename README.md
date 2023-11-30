@@ -71,13 +71,35 @@ The project was inspired by a personal idea which was managing my personal expen
 
 ### User Stories
 
+- To be able to view the site on a range of device sizes.
+- To allow people to sign up and log in to the site.
+- To be able to add records of expenses
+- To be able to see the Balance
+- To be able to see the spendings and the categories of the expenses.
+- To have a visual representation of the expenses.
+- To be able to set saving goals.
+- To be able to see the total savings.
+
 #### Client Goals
+
+- To be able to create an account.
+- To be able to create read edit and delete expenses.
+- To help the clients to have a better understanding of their spending.
 
 #### First Time Visitor Goals
 
+- To be able to create an account and log in.
+- To be able to create read edit and delete expenses.
+
 #### Returning Visitor Goals
 
+- To be able to log in and manage their expenses savings and balance.
+- To be able to see the savings as well.
+
 #### Frequent Visitor Goals
+
+- To be able to log in and manage their expenses savings and balance.
+- To be able to see the savings as well.
 
 ---
 
