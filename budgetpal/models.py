@@ -14,13 +14,14 @@ class User(UserMixin, db.Model):
     expenses = db.relationship('Expense', backref='user', lazy=True)
 
 
-class Expense(db.model):
+class Expense(db.Model):
     # schema for expense
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(255))
-    user_id = db.Column(db.Integer, db.ForeignKey(user_id), nullable=False)
-    category_id = db.Column(db.Integer, db.ForeignKey('category_id'), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    category_id = db.Column(
+        db.Integer, db.ForeignKey('category.id'), nullable=True)
     category = db.relationship('Category', backref='expenses', lazy=True)
 
 
