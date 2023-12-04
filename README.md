@@ -207,6 +207,8 @@ Google Dev Tools - To troubleshoot and test features, solve issues with responsi
 
 [Am I Responsive?](http://ami.responsivedesign.is/) To show the website image on a range of devices.
 
+[Materialize 1.0.0](https://materializecss.com/) To develop front end appearence using pre-coded CSS.
+
 ---
 
 ## Deployment & Local Development
