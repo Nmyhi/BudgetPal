@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <!-- Compiled and minified Materialize 1.0.0 CSS -->
     <link
       rel="stylesheet"
@@ -18,8 +23,49 @@
     <title>BudgetPal</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-
+    <header>
+      <!-- Top navbar-->
+      <nav>
+        <div class="nav-wrapper light-blue darken-4">
+          <a href="{{ url_for('home') }}" class="brand-logo">BudgetPal</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="fas fa-bars"></i
+          ></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="#">User</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign Up</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Mobile navbar -->
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="#">User</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+    </header>
+    <!-- Main content-->
+    <main class="container">{% block content %} {% endblock %}</main>
+    <!-- Footer -->
+    <footer class="page-footer light-blue darken-4">
+      <div class="container light-blue darken-4">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!"
+          ><i class="fa-brands fa-facebook small-padding"></i
+        ></a>
+        <a class="grey-text text-lighten-4 right" href="#!"
+          ><i class="fas fa-envelope small-padding"></i
+        ></a>
+        <a class="grey-text text-lighten-4 right" href="#!"
+          ><i class="fa-brands fa-whatsapp small-padding"></i
+        ></a>
+      </div>
+    </footer>
     <!-- Compiled and minified materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Local javascript link-->
