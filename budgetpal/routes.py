@@ -1,5 +1,12 @@
+import os
 from flask import render_template
 from budgetpal import app, db
+# import libraries for forms and authentication
+from flask import Flask, render_template, request, url_for, flash, redirect
+from flask_login import UserMixin
+from flask_login import LoginManager, login_user, current_user
+from flask_sqlalchemy import SQLAlchemy
+from budgetpal.forms import RegistrationForm, LoginForm
 # import the tables from the app package
 from budgetpal.models import User, Expense, Category
 
@@ -7,3 +14,28 @@ from budgetpal.models import User, Expense, Category
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password1.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('registration.html', form=form)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.check_password(form.password.data):
+            login_user(user)
+            next = request.args.get("next")
+            return redirect(next or url_for('home'))
+        flash('Invalid email address or Password.')
+    return render_template('login.html', form=form)

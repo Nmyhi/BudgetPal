@@ -3,6 +3,8 @@ from budgetpal import db
 from flask_login import UserMixin
 # import password hash generator
 from werkzeug.security import generate_password_hash, check_password_hash
+# import datetime
+from datetime import datetime
 
 
 # define the database tables
@@ -12,9 +14,13 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     # modified from 100, password to password_hash
     password_hash = db.Column(db.String(150), nullable=False)
+    # add email column
+    email = db.Column(db.String(150), unique=True, index=True)
     balance = db.Column(db.Float, default=0.0, nullable=False)
     savings = db.Column(db.Float, default=0.0, nullable=False)
     expenses = db.relationship('Expense', backref='user', lazy=True)
+    # added date column
+    joined_at = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
