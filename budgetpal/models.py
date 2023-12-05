@@ -1,6 +1,8 @@
 # import db from the application package and UserMixin from Flask_login
 from budgetpal import db
 from flask_login import UserMixin
+# import password hash generator
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # define the database tables
@@ -8,10 +10,17 @@ class User(UserMixin, db.Model):
     # schema for the user model
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    # modified from 100, password to password_hash
+    password_hash = db.Column(db.String(150), nullable=False)
     balance = db.Column(db.Float, default=0.0, nullable=False)
     savings = db.Column(db.Float, default=0.0, nullable=False)
     expenses = db.relationship('Expense', backref='user', lazy=True)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 
 class Expense(db.Model):

@@ -6,4 +6,4 @@ from budgetpal.models import User, Expense, Category
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("index.html")
