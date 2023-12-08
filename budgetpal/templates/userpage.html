@@ -1,4 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <h3 light-blue darken-4>User Page</h3>
-<div>{{ current_user.username }}</div>
+<div>
+  <a href="{{ url_for('home') }}">Home</a>
+  {% if current_user.is_anonymous == True %}
+  <a href="{{ url_for('loggin') }}">Login</a>
+  {% else %}
+  <p>Welcome {{current_user.username}}</p>
+  <a href="{{ url_for('loggout') }}">Logout</a>
+  {% endif %}
+</div>
 {% endblock%}
