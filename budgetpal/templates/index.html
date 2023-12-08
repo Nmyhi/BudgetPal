@@ -4,12 +4,13 @@
 
 <div>
   <a href="{{ url_for('home') }}">Home</a>
-  {% if current_user.is_anonymous %}
+  {% if current_user.is_anonymous == True %}
   <a href="{{ url_for('loggin') }}">Login</a>
   {% else %}
   <p>Welcome {{current_user.username}}</p>
-  <a href="{{ url_for('logout') }}">Logout</a>
+  <a href="{{ url_for('loggout') }}">Logout</a>
   {% endif %}
 </div>
-
+<div>{{ current_user.username }}</div>
+<div>{{ current_user.is_anonymous }}</div>
 {% endblock%}

@@ -38,7 +38,7 @@ class User(UserMixin, db.Model):
         return True  # Return True if the user is active, else False
 
     def is_anonymous(self):
-        return False
+        return not self.is_authenticated()
 
 
 class Expense(db.Model):

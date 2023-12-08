@@ -1,7 +1,7 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request, url_for, flash, redirect
-from flask_login import UserMixin, LoginManager, login_user, current_user
+from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user
 from flask import render_template
 from budgetpal.forms import RegistrationForm, LoginForm
 from budgetpal.models import User, Expense, Category
@@ -36,3 +36,10 @@ def loggin():
             return redirect(next or url_for('home'))
         flash('Invalid email address or Password.')
     return render_template('loggin.html', form=form)
+
+
+@app.route("/loggout")
+# @login_required
+def loggout():
+    logout_user()
+    return redirect(url_for('home'))
