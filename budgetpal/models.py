@@ -28,6 +28,18 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def get_id(self):
+        return str(self.id)
+
+    def is_authenticated(self):
+        return True  # Return True if the user is authenticated, else False
+
+    def is_active(self):
+        return True  # Return True if the user is active, else False
+
+    def is_anonymous(self):
+        return False
+
 
 class Expense(db.Model):
     # schema for expense
