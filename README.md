@@ -125,13 +125,15 @@ I like to include a palette of the colour scheme here, my favourite site for cre
 
 ### Typography
 
-If you've imported fonts to use in your project, add some information about them here. You can include information like:
+If you've imported fonts to use in your project. I have chosen Bebas Neue google font family.
 
-Why did you choose the font you have?
-Is this an accessibly friendly font?
-What weights have you included?
+[Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 
-I also like to include an image of the fonts chosen as a reference.
+I chose for this font family because I think it appeares to be something fit well into my project.
+I think it is an accessible friendly font because the characters are uppercase and easy to read.
+I used font-weight 400.
+
+[image link]()
 
 [Google Fonts](https://fonts.google.com/) is a popular choice for importing fonts to use in your project, as it doesn't require you to download the fonts to use them.
 
