@@ -51,7 +51,7 @@ class Expense(db.Model):
     category_id = db.Column(
         db.Integer, db.ForeignKey('category.id'), nullable=True)
     category = db.relationship('Category', backref='expenses', lazy=True)
-    
+
 
 class Category(db.Model):
     # schema for category
@@ -59,3 +59,34 @@ class Category(db.Model):
     name = db.Column(db.String(50), unique=True, nullable=False)
     # Ill call it as logo_url for now which will be a pre coded category logo
     logo_url = db.Column(db.String(255), nullable=False)
+
+    def init_categories():
+        # Query all of the categories
+        existing_categories = Category.query.all()
+        # check if the categories already existing_categories
+        if not existing_categories:
+            # if the categories do not exist create them
+            income_category = Category(
+                name="Income", logo_url="{{ url_for('static', filename='images/income_icon.png) }}")
+            rent_category = Category(
+                name="Rent", logo_url="{{ url_for('static', filename='images/rent_icon.png') }}")
+            utility_category = Category(
+                name="Utility", logo_url="{{ url_for('static', filename='images/utility_icon.png') }}")
+            car_category = Category(
+                name="Car Expense", logo_url="{{ url_for('static', filename='images/car_icon.png') }}")
+            leisure_category = Category(
+                name="Leisure", logo_url="{{ url_for('static', filename='images/leisure_icon.png') }}")
+            family_category = Category(
+                name="Family", logo_url="{{ url_for('static', filename='images/family_icon.png') }}")
+            other_category = Category(
+                name="Other", logo_url="{{ url_for('static', filename='images/other_icon.png') }}")
+            travel_category = Category(
+                name="Travel", logo_url="{{ url_for('static', filename='images/travel_icon.png') }}")
+            education_category = Category(
+                name="Education", logo_url="{{ url_for('static', filename='images/education_icon.png') }}")
+            saving_category = Category(
+                name="Saving", logo_url="{{ url_for('static', filename='images/saving_icon.png') }}")
+
+            db.session.add_all([rent_category, utility_category,
+                               car_category, leisure_category, family_category, other_category, travel_category, education_category, saving_category])
+            db.session.commit()

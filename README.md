@@ -211,6 +211,8 @@ Google Dev Tools - To troubleshoot and test features, solve issues with responsi
 
 [Materialize 1.0.0](https://materializecss.com/) To develop front end appearence using pre-coded CSS.
 
+[Flaticon](https://www.flaticon.com/) To download nice png icons. Flaticon allows you to download entire icon packs in various styles. You can filter by category, style, and color to find the pack that suits your needs.
+
 ---
 
 ## Deployment & Local Development
