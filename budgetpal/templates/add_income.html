@@ -1,3 +1,77 @@
 {% extends "base.html" %} {% block content %}
 <h3>Add Income</h3>
+<div class="row card-panel grey lighten-5">
+  <form class="col s12" method="POST" action="{{ url_for('add_income') }}">
+    <!-- Income amount -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <input
+          id="income_amount"
+          name="income_amount"
+          minlength="3"
+          maxlength="25"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="income_amount">Income amount</label>
+      </div>
+    </div>
+    <!-- Description -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <input
+          id="income_description"
+          name="income_escription"
+          minlength="3"
+          maxlength="25"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="income_description">Description</label>
+      </div>
+    </div>
+    <!-- Income Date-->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <input
+          id="income_date"
+          name="income_date"
+          type="text"
+          class="datepicker validate invalid"
+          required=""
+        />
+        <label for="income_date" class="">Income Date</label>
+      </div>
+    </div>
+    <!-- Income Category -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <input
+          id="income_category"
+          name="income_category"
+          minlength="3"
+          maxlength="25"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="income_category">Income Category</label>
+      </div>
+    </div>
+    <!-- submit button -->
+    <div class="row">
+      <div class="col s12 center-align">
+        <button type="submit" class="btn-large light-blue darken-1">
+          Add Income<i class="fas fa-plus-square right"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}
