@@ -50,6 +50,11 @@ def userpage():
     return render_template("userpage.html")
 
 
-@app.route("/add_balance")
-def add_balance():
-    return render_template("add_balance.html")
+@app.route("/add_income", methods=["GET", "POST"])
+def add_income():
+    return render_template("add_income.html")
+
+
+@app.route("/add_expense", methods=["GET", "POST"])
+def add_expense():
+    return render_template("add_expense.html")

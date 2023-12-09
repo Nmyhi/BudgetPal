@@ -53,7 +53,6 @@ class Expense(db.Model):
     category = db.relationship('Category', backref='expenses', lazy=True)
     
 
-
 class Category(db.Model):
     # schema for category
     id = db.Column(db.Integer, primary_key=True)
