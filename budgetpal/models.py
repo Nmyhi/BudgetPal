@@ -87,6 +87,6 @@ class Category(db.Model):
             saving_category = Category(
                 name="Saving", logo_url="{{ url_for('static', filename='images/saving_icon.png') }}")
 
-            db.session.add_all([rent_category, utility_category,
+            db.session.add_all([income_category, rent_category, utility_category,
                                car_category, leisure_category, family_category, other_category, travel_category, education_category, saving_category])
             db.session.commit()
