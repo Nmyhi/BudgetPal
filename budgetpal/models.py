@@ -46,10 +46,12 @@ class Expense(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(255))
+    expense_date = db.Column(db.Date, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     category_id = db.Column(
         db.Integer, db.ForeignKey('category.id'), nullable=True)
     category = db.relationship('Category', backref='expenses', lazy=True)
+    
 
 
 class Category(db.Model):

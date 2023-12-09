@@ -1,12 +1,40 @@
 {% extends "base.html" %} {% block content %}
-<h3 light-blue darken-4>User Page</h3>
-<div>
-  <a href="{{ url_for('home') }}">Home</a>
-  {% if current_user.is_anonymous == True %}
-  <a href="{{ url_for('loggin') }}">Login</a>
-  {% else %}
-  <p>Welcome {{current_user.username}}</p>
-  <a href="{{ url_for('loggout') }}">Logout</a>
+<div class="row">
+  <div class="col s6">
+    <h3>User Page</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    {% if current_user.is_anonymous == True %}
+    <div>
+      <span>No User, Please<a href="{{ url_for('loggin') }}">Login</a></span>
+    </div>
+    {% else %}
+    <div>
+      <h4>Welcome {{current_user.username}}</h4>
+      <h5>
+        <a
+          href="{{ url_for('loggout') }}"
+          class="btn-large secondary-color light-blue darken-4"
+          >Logout <i class="fa-solid fa-person-walking-arrow-right"></i
+        ></a>
+      </h5>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="row">
+  <div class="col s3"><h5>Balance: {{current_user.balance}}</h5></div>
+  <div class="col s3"><h5>Savings: {{current_user.savings}}</h5></div>
+  {% if current_user.balance == 0 %}
+  <div class="col s3">
+    <a
+      href="{{ url_for('add_balance') }}"
+      class="btn-large secondary-color light-blue darken-4"
+      >Add Balance <i class="fa-solid fa-coins"></i
+    ></a>
+  </div>
   {% endif %}
 </div>
 {% endblock%}

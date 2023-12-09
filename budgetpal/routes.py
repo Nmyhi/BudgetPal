@@ -48,3 +48,8 @@ def loggout():
 @app.route("/userpage")
 def userpage():
     return render_template("userpage.html")
+
+
+@app.route("/add_balance")
+def add_balance():
+    return render_template("add_balance.html")
