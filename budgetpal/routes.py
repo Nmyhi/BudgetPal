@@ -73,4 +73,16 @@ def add_income():
 
 @app.route("/add_expense", methods=["GET", "POST"])
 def add_expense():
-    return render_template("add_expense.html")
+    if request.method == "POST":
+        expense = Expense(
+            amount=request.form.get("expense_amount"),
+            description=request.form.get("expense_description"),
+            expense_date=request.form.get("expense_date"),
+            user_id=current_user.id,
+            category_id=request.form.get("expense_category")
+        )
+        db.session.add(expense)
+        db.session.commit()
+        return redirect(url_for('userpage'))
+    categories = Category.query.all()
+    return render_template("add_expense.html", categories=categories)
