@@ -5,6 +5,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 # import datetime
 from datetime import datetime
+from sqlalchemy.orm import relationship
 
 
 # define the database tables
@@ -67,25 +68,25 @@ class Category(db.Model):
         if not existing_categories:
             # if the categories do not exist create them
             income_category = Category(
-                name="Income", logo_url="{{ url_for('static', filename='images/income_icon.png) }}")
+                name="Income", logo_url="static/images/income_icon.png")
             rent_category = Category(
-                name="Rent", logo_url="{{ url_for('static', filename='images/rent_icon.png') }}")
+                name="Rent", logo_url="static/images/rent_icon.png")
             utility_category = Category(
-                name="Utility", logo_url="{{ url_for('static', filename='images/utility_icon.png') }}")
+                name="Utility", logo_url="static/images/utility_icon.png")
             car_category = Category(
-                name="Car Expense", logo_url="{{ url_for('static', filename='images/car_icon.png') }}")
+                name="Car Expense", logo_url="static/images/car_icon.png")
             leisure_category = Category(
-                name="Leisure", logo_url="{{ url_for('static', filename='images/leisure_icon.png') }}")
+                name="Leisure", logo_url="static/images/leisure_icon.png")
             family_category = Category(
-                name="Family", logo_url="{{ url_for('static', filename='images/family_icon.png') }}")
+                name="Family", logo_url="static/images/family_icon.png")
             other_category = Category(
-                name="Other", logo_url="{{ url_for('static', filename='images/other_icon.png') }}")
+                name="Other", logo_url="static/images/other_icon.png")
             travel_category = Category(
-                name="Travel", logo_url="{{ url_for('static', filename='images/travel_icon.png') }}")
+                name="Travel", logo_url="static/images/travel_icon.png")
             education_category = Category(
-                name="Education", logo_url="{{ url_for('static', filename='images/education_icon.png') }}")
+                name="Education", logo_url="static/images/education_icon.png")
             saving_category = Category(
-                name="Saving", logo_url="{{ url_for('static', filename='images/saving_icon.png') }}")
+                name="Saving", logo_url="static/images/saving_icon.png")
 
             db.session.add_all([income_category, rent_category, utility_category,
                                car_category, leisure_category, family_category, other_category, travel_category, education_category, saving_category])

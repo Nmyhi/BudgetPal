@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user
 from flask import render_template
+from datetime import datetime
 from budgetpal.forms import RegistrationForm, LoginForm
 from budgetpal.models import User, Expense, Category
 from budgetpal import app, db
@@ -52,7 +53,19 @@ def userpage():
 
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
-    return render_template("add_income.html")
+    if request.method == "POST":
+        expense = Expense(    
+            amount = request.form.get("income_amount"),
+            description = request.form.get("income_description"),
+            expense_date = request.form.get("income_date"),
+            user_id = current_user.id,
+            category_id = request.form.get("income_category")
+        )
+        db.session.add(expense)
+        db.session.commit()
+        return redirect(url_for('userpage'))
+    categories = Category.query.all()
+    return render_template("add_income.html", categories=categories)
 
 
 @app.route("/add_expense", methods=["GET", "POST"])

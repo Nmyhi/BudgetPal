@@ -5,7 +5,9 @@
     <!-- Income amount -->
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <i
+          class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"
+        ></i>
         <input
           id="income_amount"
           name="income_amount"
@@ -21,10 +23,10 @@
     <!-- Description -->
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <i class="fa-solid fa-info prefix light-blue-text text-darken-4"></i>
         <input
           id="income_description"
-          name="income_escription"
+          name="income_description"
           minlength="3"
           maxlength="25"
           type="text"
@@ -37,7 +39,9 @@
     <!-- Income Date-->
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <i
+          class="fa-solid fa-calendar-days prefix light-blue-text text-darken-4"
+        ></i>
         <input
           id="income_date"
           name="income_date"
@@ -50,20 +54,29 @@
     </div>
     <!-- Income Category -->
     <div class="row">
-      <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <input
-          id="income_category"
-          name="income_category"
-          minlength="3"
-          maxlength="25"
-          type="text"
-          class="validate"
-          required
-        />
-        <label for="income_category">Income Category</label>
-      </div>
-    </div>
+  <div class="input-field col s12">
+    <select
+      id="income_category"
+      name="income_category"
+      class="validate"
+      required
+    >
+      <option value="" disabled selected>Choose your option</option>
+
+      {% for category in categories %}
+        {% if category.name == 'Income' %}
+          <option
+            value="{{ category.id }}" name="income_category"
+            data-icon="{{ category.logo_url}}"
+          >
+            {{ category.name }}
+          </option>
+        {% endif %}
+      {% endfor %}
+    </select>
+    <label for="income_category">Choose a Category</label>
+  </div>
+</div>
     <!-- submit button -->
     <div class="row">
       <div class="col s12 center-align">

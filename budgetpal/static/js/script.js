@@ -16,3 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let datePicker = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePicker);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    let categoryPicker = document.querySelectorAll('select');
+    M.FormSelect.init(categoryPicker);
+});
