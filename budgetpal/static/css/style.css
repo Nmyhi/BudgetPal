@@ -18,3 +18,18 @@ main {
 .secondary-color {
     color: #e69f17;
 }
+
+.category_logo {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.expenses-collection-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.expenses-collection-item img {
+    margin-right: 10px;
+}

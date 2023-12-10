@@ -36,4 +36,27 @@
   <div class="col s3"><h5>Balance: {{current_user.balance}}</h5></div>
   <div class="col s3"><h5>Savings: {{current_user.savings}}</h5></div>
 </div>
+<div class="row">
+  <div class="col s6">
+    <ul class="collection">
+      <li class="collection-item">Expenses</li>
+      {% for expense in expenses %}
+      <li class="collection-item expenses-collection-item">
+        {% for category in categories if category.id == expense.category_id %}
+        <img
+          src="{{ category.logo_url }}"
+          alt="Category Logo"
+          class="category_logo"
+        />
+        {% endfor %}
+        <span>
+          <strong>Amount:</strong> {{ expense.amount }}<br />
+          <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
+          <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
 {% endblock%}

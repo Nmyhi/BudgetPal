@@ -48,18 +48,21 @@ def loggout():
 
 @app.route("/userpage")
 def userpage():
-    return render_template("userpage.html")
+    # query the expenses of the current user
+    expenses = Expense.query.filter_by(user_id=current_user.id).all()
+    categories = Category.query.all()
+    return render_template("userpage.html", expenses=expenses, categories=categories)
 
 
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
     if request.method == "POST":
-        expense = Expense(    
-            amount = request.form.get("income_amount"),
-            description = request.form.get("income_description"),
-            expense_date = request.form.get("income_date"),
-            user_id = current_user.id,
-            category_id = request.form.get("income_category")
+        expense = Expense(
+            amount=request.form.get("income_amount"),
+            description=request.form.get("income_description"),
+            expense_date=request.form.get("income_date"),
+            user_id=current_user.id,
+            category_id=request.form.get("income_category")
         )
         db.session.add(expense)
         db.session.commit()
