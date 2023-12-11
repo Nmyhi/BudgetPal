@@ -102,3 +102,11 @@ def edit_expense(expense_id):
         db.session.commit()
         return redirect(url_for('userpage'))
     return render_template("edit_expense.html", expense=expense, categories=categories)
+
+
+@app.route("/delete_expense/<int:expense_id>")
+def delete_expense(expense_id):
+    expense = Expense.query.get_or_404(expense_id)
+    db.session.delete(expense)
+    db.session.commit()
+    return redirect(url_for('userpage'))
