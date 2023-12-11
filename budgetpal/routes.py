@@ -67,7 +67,7 @@ def add_income():
         db.session.add(expense)
         db.session.commit()
         return redirect(url_for('userpage'))
-    categories = Category.query.all()
+    categories = Category.query.order_by(Category.category.name).all()
     return render_template("add_income.html", categories=categories)
 
 
@@ -86,3 +86,9 @@ def add_expense():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_expense.html", categories=categories)
+
+
+@app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
+def edit_expense(expense_id):
+    expense = Expense.query.get_or_404(expense_id)
+    return render_template("edit_expense.html", expense=expense)

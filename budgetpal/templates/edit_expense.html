@@ -1,0 +1,88 @@
+{% extends "base.html" %}{% block content %}
+<h3>Edit Expense</h3>
+<div class="row card-panel grey lighten-5">
+  <form class="col s12" method="POST" action="{{ url_for('edit_expense', expense_id=expense.id) }}">
+    <!-- Expense amount -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i
+          class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"
+        ></i>
+        <input
+          id="expense_amount"
+          name="expense_amount"
+          minlength="3"
+          maxlength="25"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="expense_amount">Expense amount</label>
+      </div>
+    </div>
+    <!-- Description -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fa-solid fa-info prefix light-blue-text text-darken-4"></i>
+        <input
+          id="expense_description"
+          name="expense_description"
+          minlength="3"
+          maxlength="25"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="expense_description">Description</label>
+      </div>
+    </div>
+    <!-- expense Date-->
+    <div class="row">
+      <div class="input-field col s12">
+        <i
+          class="fa-solid fa-calendar-days prefix light-blue-text text-darken-4"
+        ></i>
+        <input
+          id="expense_date"
+          name="expense_date"
+          type="text"
+          class="datepicker validate invalid"
+          required=""
+        />
+        <label for="expense_date" class="">Expense Date</label>
+      </div>
+    </div>
+    <!-- Expense Category -->
+    <div class="row">
+      <div class="input-field col s12">
+        <select
+          id="expense_category"
+          name="expense_category"
+          class="validate"
+          required
+        >
+          <option value="" disabled selected>Choose your option</option>
+          {% for category in categories %}
+          <option
+            value="{{ category.id }}"
+            name="expense_category"
+            data-icon="{{ category.logo_url}}"
+          >
+            {{ category.name }}
+          </option>
+          {% endfor %}
+        </select>
+        <label for="expense_category">Choose a Category</label>
+      </div>
+    </div>
+    <!-- submit button -->
+    <div class="row">
+      <div class="col s12 center-align">
+        <button type="submit" class="btn-large light-blue darken-1">
+          Edit Expense<i class="fas fa-plus-square right"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

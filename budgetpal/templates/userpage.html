@@ -58,7 +58,11 @@
           <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
           <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
           <div class="expenses-buttons-container">
-            <a href="#" class="btn green accent-4">Edit</a>
+            <a
+              href="{{ url_for('edit_expense', expense_id=expense.id) }}"
+              class="btn green accent-4"
+              >Edit</a
+            >
             <a href="#" class="btn red">Delete</a>
           </div>
         </span>
