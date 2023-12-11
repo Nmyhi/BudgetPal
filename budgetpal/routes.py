@@ -91,4 +91,5 @@ def add_expense():
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
-    return render_template("edit_expense.html", expense=expense)
+    categories = Category.query.all()
+    return render_template("edit_expense.html", expense=expense, categories=categories)
