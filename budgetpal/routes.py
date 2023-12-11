@@ -92,4 +92,13 @@ def add_expense():
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
     categories = Category.query.all()
+    if request.method == "POST":
+
+        expense.amount = request.form.get("expense_amount")
+        expense.description = request.form.get("expense_description")
+        expense.expense_date = request.form.get("expense_date")
+        expense.category_id = request.form.get("expense_category")
+
+        db.session.commit()
+        return redirect(url_for('userpage'))
     return render_template("edit_expense.html", expense=expense, categories=categories)
