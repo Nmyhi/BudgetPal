@@ -73,8 +73,11 @@
           <option
             value="{{ category.id }}"
             name="expense_category"
-            data-icon="{{ category.logo_url}}"
+            data-icon="{{ url_for('static', filename=category.logo_url[7:]) }}"
           >
+            <!-- Modify the link to the logo images modify this to : 
+            data-icon="{{ category.logo_url}}" to see the issue!
+            -->
             {{ category.name }}
           </option>
           {% endfor %}
