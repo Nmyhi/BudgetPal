@@ -28,8 +28,21 @@ main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    position: relative;
 }
 
 .expenses-collection-item img {
     margin-right: 10px;
+}
+
+.expenses-buttons-container {
+    position: absolute;
+    top: 4px;
+    right: 0;
+}
+
+.expenses-buttons-container a {
+    display: block;
+    margin-bottom: 5px;
+    /* Adjust the spacing between buttons */
 }

@@ -41,7 +41,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col s6">
+  <div class="col s10">
     <ul class="collection">
       <li class="collection-item">Expenses</li>
       {% for expense in expenses %}
@@ -57,6 +57,10 @@
           <strong>Amount:</strong> {{ expense.amount }}<br />
           <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
           <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
+          <div class="expenses-buttons-container">
+            <a href="#" class="btn green accent-4">Edit</a>
+            <a href="#" class="btn red">Delete</a>
+          </div>
         </span>
       </li>
       {% endfor %}
