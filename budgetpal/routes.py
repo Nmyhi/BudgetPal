@@ -57,6 +57,8 @@ def userpage():
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
     if request.method == "POST":
+        current_user_info = User.query.filter_by(id=current_user.id).first()
+        income_amount = float(request.form.get("income_amount"))
         expense = Expense(
             amount=request.form.get("income_amount"),
             description=request.form.get("income_description"),
@@ -64,10 +66,12 @@ def add_income():
             user_id=current_user.id,
             category_id=request.form.get("income_category")
         )
+        # Update the user's balance
+        current_user_info.balance += income_amount
         db.session.add(expense)
         db.session.commit()
         return redirect(url_for('userpage'))
-    categories = Category.query.order_by(Category.category.name).all()
+    categories = Category.query.all()
     return render_template("add_income.html", categories=categories)
 
 
