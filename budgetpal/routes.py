@@ -110,3 +110,18 @@ def delete_expense(expense_id):
     db.session.delete(expense)
     db.session.commit()
     return redirect(url_for('userpage'))
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = Category(
+            name=request.form.get("category_name"),
+            logo_url=request.form.get("category_logo"),
+        )
+        db.session.add(category)
+        db.session.commit()
+        return redirect(url_for('userpage'))
+    categories = Category.query.all()
+    return render_template("add_category.html", categories=categories)
+

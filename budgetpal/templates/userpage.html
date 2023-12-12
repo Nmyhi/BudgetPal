@@ -24,6 +24,11 @@
         >Add Expense <i class="fa-solid fa-coins"></i
       ></a>
       <a
+        href="{{ url_for('add_category') }}"
+        class="btn-large secondary-color light-blue darken-4"
+        >Add Category <i class="fa-solid fa-layer-group"></i
+      ></a>
+      <a
         href="{{ url_for('loggout') }}"
         class="btn-large secondary-color light-blue darken-4"
         >Logout <i class="fa-solid fa-person-walking-arrow-right"></i
@@ -63,7 +68,11 @@
               class="btn green accent-4"
               >Edit</a
             >
-            <a href="{{ url_for('delete_expense', expense_id=expense.id) }}" class="btn red">Delete</a>
+            <a
+              href="{{ url_for('delete_expense', expense_id=expense.id) }}"
+              class="btn red"
+              >Delete</a
+            >
           </div>
         </span>
       </li>
