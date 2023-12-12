@@ -111,6 +111,11 @@ def edit_expense(expense_id):
 @app.route("/delete_expense/<int:expense_id>")
 def delete_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
+    # subtract the income amount from the balance if it was an income
+    if expense.category.name == 'Income':
+        current_user.balance -= expense.amount
+        db.session.delete(expense)
+        db.session.commit()
     db.session.delete(expense)
     db.session.commit()
     return redirect(url_for('userpage'))
