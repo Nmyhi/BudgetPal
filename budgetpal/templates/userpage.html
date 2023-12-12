@@ -48,35 +48,26 @@
 <div class="row">
   <div class="col s10">
     <ul class="collection">
-      <li class="collection-item">Expenses</li>
-      {% for expense in expenses %}
-      <li class="collection-item expenses-collection-item">
-        {% for category in categories if category.id == expense.category_id %}
-        <img
-          src="{{ category.logo_url }}"
-          alt="Category Logo"
-          class="category_logo"
-        />
+        <li class="collection-item">Expenses</li>
+        {% for expense in expenses %}
+        <li class="collection-item expenses-collection-item">
+            {% set expense_category = categories|selectattr('id', 'equalto', expense.category_id)|first %}
+            {% if expense_category %}
+            <img src="{{ expense_category.logo_url }}" alt="Category Logo" class="category_logo" />
+            {% endif %}
+            <span>
+                <strong>Amount:</strong> {{ expense.amount }}<br />
+                <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
+                <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
+                <div class="expenses-buttons-container">
+                    {% if expense_category and expense_category.name != 'Income' %}
+                    <a href="{{ url_for('edit_expense', expense_id=expense.id) }}" class="btn green accent-4">Edit</a>
+                    {% endif %}
+                    <a href="{{ url_for('delete_expense', expense_id=expense.id) }}" class="btn red">Delete</a>
+                </div>
+            </span>
+        </li>
         {% endfor %}
-        <span>
-          <strong>Amount:</strong> {{ expense.amount }}<br />
-          <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
-          <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
-          <div class="expenses-buttons-container">
-            <a
-              href="{{ url_for('edit_expense', expense_id=expense.id) }}"
-              class="btn green accent-4"
-              >Edit</a
-            >
-            <a
-              href="{{ url_for('delete_expense', expense_id=expense.id) }}"
-              class="btn red"
-              >Delete</a
-            >
-          </div>
-        </span>
-      </li>
-      {% endfor %}
     </ul>
   </div>
 </div>
