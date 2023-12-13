@@ -77,6 +77,7 @@ def add_income():
 
 @app.route("/add_expense", methods=["GET", "POST"])
 def add_expense():
+    current_user_info = User.query.filter_by(id=current_user.id).first()
     if request.method == "POST":
         expense = Expense(
             amount=request.form.get("expense_amount"),
@@ -85,6 +86,9 @@ def add_expense():
             user_id=current_user.id,
             category_id=request.form.get("expense_category")
         )
+        expense_amount = float(request.form.get("expense_amount"))
+        # Update the user's balance
+        current_user_info.balance -= expense_amount
         db.session.add(expense)
         db.session.commit()
         return redirect(url_for('userpage'))
@@ -116,6 +120,7 @@ def delete_expense(expense_id):
         current_user.balance -= expense.amount
         db.session.delete(expense)
         db.session.commit()
+    current_user.balance += expense.amount
     db.session.delete(expense)
     db.session.commit()
     return redirect(url_for('userpage'))
@@ -133,4 +138,3 @@ def add_category():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_category.html", categories=categories)
-

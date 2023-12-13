@@ -42,7 +42,6 @@ class User(UserMixin, db.Model):
         return not self.is_authenticated()
 
 
-
 class Expense(db.Model):
     # schema for expense
     id = db.Column(db.Integer, primary_key=True)
