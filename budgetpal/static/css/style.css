@@ -72,9 +72,7 @@ main {
     font-family: 'sans-serif';
 }
 
-.hero-image {
-    background-image: url(../images/hero_image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.double-font-size {
+    font-size: 2em;
 }

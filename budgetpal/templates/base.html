@@ -22,7 +22,11 @@
       rel="stylesheet"
     />
     <!-- Load favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
     <!-- Local css link -->
     <link
       rel="stylesheet"
@@ -36,26 +40,64 @@
       <!-- Top navbar-->
       <nav>
         <div class="nav-wrapper light-blue darken-4">
-          <a href="{{ url_for('home') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/budgetpallogo.png') }}" alt="Budgetpal Logo"></a>
+          <a href="{{ url_for('home') }}" class="brand-logo"
+            ><img
+              src="{{ url_for('static', filename='images/budgetpallogo.png') }}"
+              alt="Budgetpal Logo"
+          /></a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
             ><i class="fas fa-bars"></i
           ></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('userpage') }}">User</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="{{ url_for('loggin') }}">Login</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li>
+              <a href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li>
+              <a href="{{ url_for('userpage') }}">User</a>
+            </li>
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="{{ url_for('loggin') }}">Login</a>
+            </li>
+            <li>
+              <a href="{{ url_for('register') }}">Register</a>
+            </li>
           </ul>
         </div>
       </nav>
       <!-- Mobile navbar -->
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('userpage') }}">User</a></li>
-        <li><a href="#">Help</a></li>
-        <li><a href="{{ url_for('loggin') }}">Login</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li>
+          <a
+            href="{{ url_for('home') }}"
+            class="secondary-color double-font-size"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('userpage') }}"
+            class="secondary-color double-font-size"
+            >User</a
+          >
+        </li>
+        <li><a href="#" class="secondary-color">Help</a></li>
+        <li>
+          <a
+            href="{{ url_for('loggin') }}"
+            class="secondary-color double-font-size"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('register') }}"
+            class="secondary-color double-font-size"
+            >Register</a
+          >
+        </li>
       </ul>
     </header>
     <!-- Main content-->
