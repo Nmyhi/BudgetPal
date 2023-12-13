@@ -50,19 +50,35 @@
           ></a>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="{{ url_for('home') }}">Home</a>
+              <a
+                href="{{ url_for('home') }}"
+                class="double-font-size secondary-color"
+                >Home</a
+              >
             </li>
             <li>
-              <a href="{{ url_for('userpage') }}">User</a>
+              <a
+                href="{{ url_for('userpage') }}"
+                class="double-font-size secondary-color"
+                >User</a
+              >
             </li>
             <li>
-              <a href="#">Help</a>
+              <a href="#" class="double-font-size secondary-color">Help</a>
             </li>
             <li>
-              <a href="{{ url_for('loggin') }}">Login</a>
+              <a
+                href="{{ url_for('loggin') }}"
+                class="double-font-size secondary-color"
+                >Login</a
+              >
             </li>
             <li>
-              <a href="{{ url_for('register') }}">Register</a>
+              <a
+                href="{{ url_for('register') }}"
+                class="double-font-size secondary-color"
+                >Register</a
+              >
             </li>
           </ul>
         </div>
@@ -104,16 +120,16 @@
     <main class="container">{% block content %} {% endblock %}</main>
     <!-- Footer -->
     <footer class="page-footer light-blue darken-4">
-      <div class="container light-blue darken-4">
+      <div class="container light-blue darken-4 secondary-color">
         © 2024 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fa-brands fa-facebook small-padding"></i
+          ><i class="fa-brands fa-facebook small-padding secondary-color"></i
         ></a>
         <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fas fa-envelope small-padding"></i
+          ><i class="fas fa-envelope small-padding secondary-color"></i
         ></a>
         <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fa-brands fa-whatsapp small-padding"></i
+          ><i class="fa-brands fa-whatsapp small-padding secondary-color"></i
         ></a>
       </div>
     </footer>
