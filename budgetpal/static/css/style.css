@@ -46,3 +46,35 @@ main {
     margin-bottom: 5px;
     /* Adjust the spacing between buttons */
 }
+
+.user-div {
+    display: flex;
+    justify-content: center;
+    align-content: stretch;
+    flex-direction: row;
+    align-items: center;
+    left: 0;
+}
+
+.user-div a {
+    margin-left: 5px;
+}
+
+.welcome-display {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.welcome-display h3 {
+    font-family: 'sans-serif';
+}
+
+.hero-image {
+    background-image: url(../images/hero_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

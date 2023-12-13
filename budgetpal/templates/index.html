@@ -1,16 +1,42 @@
 {% extends "base.html" %} {% block content %}
-
-<h3 light-blue darken-4>Home Page</h3>
-
-<div>
-  <a href="{{ url_for('home') }}">Home</a>
-  {% if current_user.is_anonymous == True %}
-  <a href="{{ url_for('loggin') }}">Login</a>
-  {% else %}
-  <p>Welcome {{current_user.username}}</p>
-  <a href="{{ url_for('loggout') }}">Logout</a>
-  {% endif %}
+<div class="container hero-image">
+    <div class="user-div">
+        {% if current_user.is_anonymous == True %}
+        <a href="{{ url_for('loggin') }}">Login</a>
+        {% else %}
+        <p>Welcome {{current_user.username}}</p>
+        <a href="{{ url_for('loggout') }}">Logout</a>
+        {% endif %}
+    </div>
+    <div class="welcome-display">
+        <h1 class="secondary-color">Welcome to Budgetpal!</h1>
+        <h3 class="secondary-color">Your Financial GPS for Smarter Spending!</h3>
+    </div>
 </div>
-<div>{{ current_user.username }}</div>
-<div>Is anonymus: {{ current_user.is_anonymous }}</div>
+<div class="container reasons-section">
+    <h4 class="center-align">Why Use Budgetpal?</h4>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <i class="fas fa-chart-line"></i>
+                <h5>Financial Awareness</h5>
+                <p>Gain insights into your spending habits and financial patterns to make informed decisions.</p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <i class="fas fa-wallet"></i>
+                <h5>Budgeting and Planning</h5>
+                <p>Create realistic budgets to allocate funds effectively for various purposes.</p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <i class="fas fa-bullseye"></i>
+                <h5>Goal Setting</h5>
+                <p>Set achievable financial goals and track your progress toward a secure financial future.</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock%}
