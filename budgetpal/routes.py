@@ -99,9 +99,30 @@ def add_expense():
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
+    prev_amount = expense.amount
     categories = Category.query.all()
     if request.method == "POST":
+        current_amount = float(request.form.get("expense_amount"))
+        if prev_amount > current_amount:
+            calculated_difference = prev_amount - current_amount
+            current_user.balance += calculated_difference
 
+            expense.amount = request.form.get("expense_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("expense_category")
+
+            db.session.commit()
+        if prev_amount < current_amount:
+            calculated_difference = current_amount - prev_amount
+            current_user.balance -= calculated_difference
+
+            expense.amount = request.form.get("expense_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("expense_category")
+
+            db.session.commit()
         expense.amount = request.form.get("expense_amount")
         expense.description = request.form.get("expense_description")
         expense.expense_date = request.form.get("expense_date")
