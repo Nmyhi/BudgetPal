@@ -49,10 +49,12 @@ def loggout():
 @app.route("/userpage")
 def userpage():
     # query the expenses of the current user
-    expenses = Expense.query.filter_by(user_id=current_user.id).all()
-    categories = Category.query.all()
-    return render_template("userpage.html", expenses=expenses, categories=categories)
-
+    if current_user.is_anonymous != True:
+        expenses = Expense.query.filter_by(user_id=current_user.id).all()
+        categories = Category.query.all()
+        return render_template("userpage.html", expenses=expenses, categories=categories)
+    else:
+        return render_template("userpage.html")
 
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
