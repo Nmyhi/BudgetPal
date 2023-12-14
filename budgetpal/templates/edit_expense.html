@@ -69,7 +69,7 @@
           required
         >
           <option value="" disabled>Choose your option</option>
-          {% for category in categories %}
+          {% for category in categories %} {% if category.name != 'Income' %}
           <option
             value="{{ category.id }}"
             name="expense_category"
@@ -80,7 +80,7 @@
             -->
             {{ category.name }}
           </option>
-          {% endfor %}
+          {% endif %} {% endfor %}
         </select>
         <label for="expense_category">Choose a Category</label>
       </div>
