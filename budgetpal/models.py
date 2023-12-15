@@ -22,6 +22,7 @@ class User(UserMixin, db.Model):
     expenses = db.relationship('Expense', backref='user', lazy=True)
     # added date column
     joined_at = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
+    
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

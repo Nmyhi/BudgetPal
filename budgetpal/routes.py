@@ -88,7 +88,12 @@ def add_expense():
             user_id=current_user.id,
             category_id=request.form.get("expense_category")
         )
-        expense_amount = float(request.form.get("expense_amount"))
+        expense_amount = float(request.form.get("expense_amount"))       
+        category = Category.query.get(expense.category_id)
+        if category.name == "Saving":
+            current_user_info.savings += expense_amount
+            db.session.add(expense)
+            db.session.commit()
         # Update the user's balance
         current_user_info.balance -= expense_amount
         db.session.add(expense)
@@ -138,14 +143,23 @@ def edit_expense(expense_id):
 @app.route("/delete_expense/<int:expense_id>")
 def delete_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
+
     # subtract the income amount from the balance if it was an income
     if expense.category.name == 'Income':
         current_user.balance -= expense.amount
-        db.session.delete(expense)
-        db.session.commit()
-    current_user.balance += expense.amount
+
+    # deduct the saving amount from the user's savings if it was a saving
+    elif expense.category.name == 'Saving':
+        current_user.savings -= expense.amount
+        current_user.balance += expense.amount
+
+    # for any other category, add the amount back to the balance
+    else:
+        current_user.balance += expense.amount
+
     db.session.delete(expense)
     db.session.commit()
+
     return redirect(url_for('userpage'))
 
 
