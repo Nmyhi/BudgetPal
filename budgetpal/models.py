@@ -1,9 +1,6 @@
-# import db from the application package and UserMixin from Flask_login
 from budgetpal import db
 from flask_login import UserMixin
-# import password hash generator
 from werkzeug.security import generate_password_hash, check_password_hash
-# import datetime
 from datetime import datetime
 from sqlalchemy.orm import relationship
 
@@ -13,16 +10,13 @@ class User(UserMixin, db.Model):
     # schema for the user model
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
-    # modified from 100, password to password_hash
     password_hash = db.Column(db.String(150), nullable=False)
-    # add email column
     email = db.Column(db.String(150), unique=True, index=True)
     balance = db.Column(db.Float, default=0.0, nullable=False)
     savings = db.Column(db.Float, default=0.0, nullable=False)
     expenses = db.relationship('Expense', backref='user', lazy=True)
-    # added date column
     joined_at = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
-    
+    # functions for flask login functionality
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -44,7 +38,7 @@ class User(UserMixin, db.Model):
 
 
 class Expense(db.Model):
-    # schema for expense
+    # schema for expense model
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(255))
@@ -56,10 +50,9 @@ class Expense(db.Model):
 
 
 class Category(db.Model):
-    # schema for category
+    # schema for category model
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    # Ill call it as logo_url for now which will be a pre coded category logo
     logo_url = db.Column(db.String(255), nullable=False)
 
     def init_categories():
@@ -67,6 +60,7 @@ class Category(db.Model):
         existing_categories = Category.query.all()
         # check if the categories already existing_categories
         if not existing_categories:
+            # pre-defined categories
             # if the categories do not exist create them
             income_category = Category(
                 name="Income", logo_url="static/images/income_icon.png")
@@ -89,6 +83,6 @@ class Category(db.Model):
             saving_category = Category(
                 name="Saving", logo_url="static/images/saving_icon.png")
 
-            db.session.add_all([income_category, rent_category, utility_category,
-                               car_category, leisure_category, family_category, other_category, travel_category, education_category, saving_category])
+            db.session.add_all([income_category, rent_category, utility_category, car_category, leisure_category,
+                               family_category, other_category, travel_category, education_category, saving_category])
             db.session.commit()

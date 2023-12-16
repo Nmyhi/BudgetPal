@@ -5,81 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font awesome link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <!-- Compiled and minified Materialize 1.0.0 CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Import google font family-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
     <!-- Load favicon -->
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ url_for('static', filename='images/favicon.ico') }}"
-    />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
     <!-- Local css link -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-      type="text/css"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
     <title>BudgetPal</title>
   </head>
+
   <body>
     <header>
       <!-- Top navbar-->
       <nav>
         <div class="nav-wrapper light-blue darken-4">
-          <a href="{{ url_for('home') }}" class="brand-logo"
-            ><img
-              src="{{ url_for('static', filename='images/budgetpallogo.png') }}"
-              alt="Budgetpal Logo"
-          /></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="fas fa-bars"></i
-          ></a>
+          <a href="{{ url_for('home') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/budgetpallogo.png') }}" alt="Budgetpal Logo" /></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a
-                href="{{ url_for('home') }}"
-                class="double-font-size secondary-color"
-                >Home</a
-              >
+              <a href="{{ url_for('home') }}" class="double-font-size secondary-color">Home</a>
             </li>
             <li>
-              <a
-                href="{{ url_for('userpage') }}"
-                class="double-font-size secondary-color"
-                >User</a
-              >
+              <a href="{{ url_for('userpage') }}" class="double-font-size secondary-color">User</a>
             </li>
             <li>
-            {% if current_user.is_anonymous == True %}
-              <a
-                href="{{ url_for('loggin') }}"
-                class="double-font-size secondary-color"
-                >Login</a
-              >
-            {% else %}
-            <a href="{{ url_for('loggout') }}" class="double-font-size secondary-color">Logout</a>
-            {% endif %}
+              {% if current_user.is_anonymous == True %}
+              <a href="{{ url_for('loggin') }}" class="double-font-size secondary-color">Login</a>
+              {% else %}
+              <a href="{{ url_for('loggout') }}" class="double-font-size secondary-color">Logout</a>
+              {% endif %}
             </li>
             <li>
-              <a
-                href="{{ url_for('register') }}"
-                class="double-font-size secondary-color"
-                >Register</a
-              >
+              <a href="{{ url_for('register') }}" class="double-font-size secondary-color">Register</a>
             </li>
           </ul>
         </div>
@@ -87,33 +49,17 @@
       <!-- Mobile navbar -->
       <ul class="sidenav" id="mobile-demo">
         <li>
-          <a
-            href="{{ url_for('home') }}"
-            class="secondary-color double-font-size"
-            >Home</a
-          >
+          <a href="{{ url_for('home') }}" class="secondary-color double-font-size">Home</a>
         </li>
         <li>
-          <a
-            href="{{ url_for('userpage') }}"
-            class="secondary-color double-font-size"
-            >User</a
-          >
+          <a href="{{ url_for('userpage') }}" class="secondary-color double-font-size">User</a>
         </li>
         <li><a href="#" class="secondary-color">Help</a></li>
         <li>
-          <a
-            href="{{ url_for('loggin') }}"
-            class="secondary-color double-font-size"
-            >Login</a
-          >
+          <a href="{{ url_for('loggin') }}" class="secondary-color double-font-size">Login</a>
         </li>
         <li>
-          <a
-            href="{{ url_for('register') }}"
-            class="secondary-color double-font-size"
-            >Register</a
-          >
+          <a href="{{ url_for('register') }}" class="secondary-color double-font-size">Register</a>
         </li>
       </ul>
     </header>
@@ -123,15 +69,9 @@
     <footer class="page-footer light-blue darken-4">
       <div class="container light-blue darken-4 secondary-color l12">
         © 2024 BudgetPal
-        <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fa-brands fa-facebook small-padding secondary-color"></i
-        ></a>
-        <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fas fa-envelope small-padding secondary-color"></i
-        ></a>
-        <a class="grey-text text-lighten-4 right" href="#!"
-          ><i class="fa-brands fa-whatsapp small-padding secondary-color"></i
-        ></a>
+        <a class="grey-text text-lighten-4 right" href="#!"><i class="fa-brands fa-facebook small-padding secondary-color"></i></a>
+        <a class="grey-text text-lighten-4 right" href="#!"><i class="fas fa-envelope small-padding secondary-color"></i></a>
+        <a class="grey-text text-lighten-4 right" href="#!"><i class="fa-brands fa-whatsapp small-padding secondary-color"></i></a>
       </div>
     </footer>
     <!-- Compiled and minified materialize JavaScript -->

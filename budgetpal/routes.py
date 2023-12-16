@@ -8,10 +8,14 @@ from budgetpal.forms import RegistrationForm, LoginForm
 from budgetpal.models import User, Expense, Category
 from budgetpal import app, db
 
+# Home route
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+# Register route
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -24,6 +28,8 @@ def register():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('registration.html', form=form)
+
+# Login route
 
 
 @app.route("/loggin", methods=["GET", "POST"])
@@ -38,12 +44,15 @@ def loggin():
         flash('Invalid email address or Password.')
     return render_template('loggin.html', form=form)
 
+# Logout route
+
 
 @app.route("/loggout")
-# @login_required
 def loggout():
     logout_user()
     return redirect(url_for('home'))
+
+# Userpage route
 
 
 @app.route("/userpage")
@@ -55,6 +64,9 @@ def userpage():
         return render_template("userpage.html", expenses=expenses, categories=categories)
     else:
         return render_template("userpage.html")
+
+# Add income route
+
 
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
@@ -76,6 +88,8 @@ def add_income():
     categories = Category.query.all()
     return render_template("add_income.html", categories=categories)
 
+# Add expense route
+
 
 @app.route("/add_expense", methods=["GET", "POST"])
 def add_expense():
@@ -88,19 +102,22 @@ def add_expense():
             user_id=current_user.id,
             category_id=request.form.get("expense_category")
         )
-        expense_amount = float(request.form.get("expense_amount"))       
+        expense_amount = float(request.form.get("expense_amount"))
         category = Category.query.get(expense.category_id)
         if category.name == "Saving":
+            # Update the user's savings
             current_user_info.savings += expense_amount
             db.session.add(expense)
             db.session.commit()
-        # Update the user's balance
+            # Update the user's balance
         current_user_info.balance -= expense_amount
         db.session.add(expense)
         db.session.commit()
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_expense.html", categories=categories)
+
+# Edit income route
 
 
 @app.route("/edit_income/<int:income_id>", methods=["GET", "POST"])
@@ -110,6 +127,7 @@ def edit_income(income_id):
     categories = Category.query.all()
     if request.method == "POST":
         current_amount = float(request.form.get("income_amount"))
+        # Logic for update the user's balance
         if prev_amount > current_amount:
             calculated_difference = prev_amount - current_amount
             current_user.balance -= calculated_difference
@@ -120,6 +138,7 @@ def edit_income(income_id):
             expense.category_id = request.form.get("income_category")
 
             db.session.commit()
+        # logic for update the user's balance
         if prev_amount < current_amount:
             calculated_difference = current_amount - prev_amount
             current_user.balance += calculated_difference
@@ -137,6 +156,8 @@ def edit_income(income_id):
         return redirect(url_for('userpage'))
     return render_template("edit_income.html", expense=expense, categories=categories)
 
+# Edit saving route
+
 
 @app.route("/edit_saving/<int:saving_id>", methods=["GET", "POST"])
 def edit_saving(saving_id):
@@ -145,6 +166,7 @@ def edit_saving(saving_id):
     categories = Category.query.all()
     if request.method == "POST":
         current_amount = float(request.form.get("saving_amount"))
+        # Logic for update user balance and saving
         if prev_amount > current_amount:
             calculated_difference = prev_amount - current_amount
             current_user.balance += calculated_difference
@@ -156,6 +178,7 @@ def edit_saving(saving_id):
             expense.category_id = request.form.get("saving_category")
 
             db.session.commit()
+        # Logic for update user balance and saving
         if prev_amount < current_amount:
             calculated_difference = current_amount - prev_amount
             current_user.balance -= calculated_difference
@@ -175,7 +198,7 @@ def edit_saving(saving_id):
     return render_template("edit_saving.html", expense=expense, categories=categories)
 
 
-
+# Edit expense route
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
@@ -183,6 +206,7 @@ def edit_expense(expense_id):
     categories = Category.query.all()
     if request.method == "POST":
         current_amount = float(request.form.get("expense_amount"))
+        # Logic for update user balance
         if prev_amount > current_amount:
             calculated_difference = prev_amount - current_amount
             current_user.balance += calculated_difference
@@ -193,6 +217,7 @@ def edit_expense(expense_id):
             expense.category_id = request.form.get("expense_category")
 
             db.session.commit()
+        # Logic for update user balance
         if prev_amount < current_amount:
             calculated_difference = current_amount - prev_amount
             current_user.balance -= calculated_difference
@@ -211,6 +236,8 @@ def edit_expense(expense_id):
         db.session.commit()
         return redirect(url_for('userpage'))
     return render_template("edit_expense.html", expense=expense, categories=categories)
+
+# Delete expense route
 
 
 @app.route("/delete_expense/<int:expense_id>")
@@ -234,6 +261,8 @@ def delete_expense(expense_id):
     db.session.commit()
 
     return redirect(url_for('userpage'))
+
+# Add category route
 
 
 @app.route("/add_category", methods=["GET", "POST"])

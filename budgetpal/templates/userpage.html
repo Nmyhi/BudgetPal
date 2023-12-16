@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block content %}
+<!-- userpage -->
 <div class="row">
   <div class="col s6">
     <h3>User Page</h3>
@@ -6,39 +7,32 @@
 </div>
 <div class="row">
   <div class="col s12">
+    <!-- Display message if there is no user logged in -->
     {% if current_user.is_anonymous == True %}
     <div>
       <span>No User, Please<a href="{{ url_for('loggin') }}">Login</a></span>
     </div>
     {% else %}
+    <!-- Welcome the user if logged in -->
     <div>
       <h4>Welcome {{current_user.username}}</h4>
-      <a
-        href="{{ url_for('add_income') }}"
-        class="btn-large secondary-color light-blue darken-4"
-        >Add Income <i class="fa-solid fa-hand-holding-dollar"></i
-      ></a>
-      <a
-        href="{{ url_for('add_expense') }}"
-        class="btn-large secondary-color light-blue darken-4"
-        >Add Expense <i class="fa-solid fa-coins"></i
-      ></a>
-      <a
-        href="{{ url_for('add_category') }}"
-        class="btn-large secondary-color light-blue darken-4"
-        >Add Category <i class="fa-solid fa-layer-group"></i
-      ></a>
-      <a
-        href="{{ url_for('loggout') }}"
-        class="btn-large secondary-color light-blue darken-4"
-        >Logout <i class="fa-solid fa-person-walking-arrow-right"></i
-      ></a>
+      <!-- Buttons for functions -->
+      <!-- Add income button -->
+      <a href="{{ url_for('add_income') }}" class="btn-large secondary-color light-blue darken-4">Add Income <i class="fa-solid fa-hand-holding-dollar"></i></a>
+      <!-- Add expense button -->
+      <a href="{{ url_for('add_expense') }}" class="btn-large secondary-color light-blue darken-4">Add Expense <i class="fa-solid fa-coins"></i></a>
+      <!-- Add category button -->
+      <a href="{{ url_for('add_category') }}" class="btn-large secondary-color light-blue darken-4">Add Category <i class="fa-solid fa-layer-group"></i></a>
+      <!-- Logout button -->
+      <a href="{{ url_for('loggout') }}" class="btn-large secondary-color light-blue darken-4">Logout <i class="fa-solid fa-person-walking-arrow-right"></i></a>
     </div>
     {% endif %}
   </div>
 </div>
+<!-- Display the user's Balance and Savings -->
 <div class="row">
   <div class="col s3">
+    <!-- If there is no user logged in this code would not work so add the logic tosolve this issue -->
     {% if current_user.is_anonymous != True %}
     <h5>Balance: {{current_user.balance}}</h5>
   </div>
@@ -46,19 +40,15 @@
     <h5>Savings: {{current_user.savings}}</h5>
   </div>
 </div>
+<!-- Display the user's expenses -->
 <div class="row">
   <div class="col s10">
     <ul class="collection grey darken-3">
       <li class="collection-item grey darken-3">Expenses</li>
       {% for expense in expenses %}
       <li class="collection-item expenses-collection-item grey darken-3">
-        {% set expense_category = categories|selectattr('id', 'equalto',
-        expense.category_id)|first %} {% if expense_category %}
-        <img
-          src="{{ expense_category.logo_url }}"
-          alt="Category Logo"
-          class="category_logo"
-        />
+        {% set expense_category = categories|selectattr('id', 'equalto', expense.category_id)|first %} {% if expense_category %}
+        <img src="{{ expense_category.logo_url }}" alt="Category Logo" class="category_logo" />
         {% endif %}
         <span>
           <strong>Amount:</strong> {{ expense.amount }}<br />
@@ -66,29 +56,13 @@
           <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
           <div class="expenses-buttons-container">
             {% if expense_category and expense_category.name == 'Income'%}
-            <a
-              href="{{ url_for('edit_income', income_id=expense.id) }}"
-              class="btn green accent-4 small-margin-right"
-              >Edit</a
-            >
+            <a href="{{ url_for('edit_income', income_id=expense.id) }}" class="btn green accent-4 small-margin-right">Edit</a>
             {% elif expense_category and expense_category.name == 'Saving' %}
-            <a
-              href="{{ url_for('edit_saving', saving_id=expense.id) }}"
-              class="btn green accent-4 small-margin-right"
-              >Edit</a
-            >
+            <a href="{{ url_for('edit_saving', saving_id=expense.id) }}" class="btn green accent-4 small-margin-right">Edit</a>
             {% else %}
-            <a
-              href="{{ url_for('edit_expense', expense_id=expense.id) }}"
-              class="btn green accent-4 small-margin-right"
-              >Edit</a
-            >
+            <a href="{{ url_for('edit_expense', expense_id=expense.id) }}" class="btn green accent-4 small-margin-right">Edit</a>
             {% endif %}
-            <a
-              href="{{ url_for('delete_expense', expense_id=expense.id) }}"
-              class="btn red small-margin-right"
-              >Delete</a
-            >
+            <a href="{{ url_for('delete_expense', expense_id=expense.id) }}" class="btn red small-margin-right">Delete</a>
           </div>
         </span>
       </li>

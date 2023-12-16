@@ -1,27 +1,13 @@
 {% extends "base.html" %}{% block content %}
+<!-- Edit Expense form -->
 <h3>Edit Expense</h3>
 <div class="row card-panel grey lighten-5">
-  <form
-    class="col s12"
-    method="POST"
-    action="{{ url_for('edit_expense', expense_id=expense.id) }}"
-  >
+  <form class="col s12" method="POST" action="{{ url_for('edit_expense', expense_id=expense.id) }}">
     <!-- Expense amount -->
     <div class="row">
       <div class="input-field col s12">
-        <i
-          class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"
-        ></i>
-        <input
-          id="expense_amount"
-          name="expense_amount"
-          value="{{ expense.amount }}"
-          minlength="3"
-          maxlength="25"
-          type="text"
-          class="validate"
-          required
-        />
+        <i class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"></i>
+        <input id="expense_amount" name="expense_amount" value="{{ expense.amount }}" minlength="3" maxlength="25" type="text" class="validate" required />
         <label for="expense_amount">Expense amount</label>
       </div>
     </div>
@@ -29,57 +15,26 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fa-solid fa-info prefix light-blue-text text-darken-4"></i>
-        <input
-          id="expense_description"
-          name="expense_description"
-          value="{{ expense.description }}"
-          minlength="3"
-          maxlength="25"
-          type="text"
-          class="validate"
-          required
-        />
+        <input id="expense_description" name="expense_description" value="{{ expense.description }}" minlength="3" maxlength="25" type="text" class="validate" required />
         <label for="expense_description">Description</label>
       </div>
     </div>
     <!-- expense Date-->
     <div class="row">
       <div class="input-field col s12">
-        <i
-          class="fa-solid fa-calendar-days prefix light-blue-text text-darken-4"
-        ></i>
-        <input
-          id="expense_date"
-          name="expense_date"
-          value="{{ expense.expense_date }}"
-          type="text"
-          class="datepicker validate invalid"
-          required=""
-        />
+        <i class="fa-solid fa-calendar-days prefix light-blue-text text-darken-4"></i>
+        <input id="expense_date" name="expense_date" value="{{ expense.expense_date }}" type="text" class="datepicker validate invalid" required="" />
         <label for="expense_date" class="">Expense Date</label>
       </div>
     </div>
     <!-- Expense Category -->
     <div class="row">
       <div class="input-field col s12">
-        <select
-          id="expense_category"
-          name="expense_category"
-          class="validate"
-          required
-        >
+        <select id="expense_category" name="expense_category" class="validate" required>
           <option value="" disabled>Choose your option</option>
+          <!-- Iterating through the categories, not displaying income category -->
           {% for category in categories %} {% if category.name != 'Income' %}
-          <option
-            value="{{ category.id }}"
-            name="expense_category"
-            data-icon="{{ url_for('static', filename=category.logo_url[7:]) }}"
-          >
-            <!-- Modify the link to the logo images modify this to : 
-            data-icon="{{ category.logo_url}}" to see the issue!
-            -->
-            {{ category.name }}
-          </option>
+          <option value="{{ category.id }}" name="expense_category" data-icon="{{ url_for('static', filename=category.logo_url[7:]) }}">{{ category.name }}</option>
           {% endif %} {% endfor %}
         </select>
         <label for="expense_category">Choose a Category</label>
@@ -88,9 +43,7 @@
     <!-- submit button -->
     <div class="row">
       <div class="col s12 center-align">
-        <button type="submit" class="btn-large light-blue darken-1">
-          Edit Expense<i class="fas fa-plus-square right"></i>
-        </button>
+        <button type="submit" class="btn-large light-blue darken-1">Edit Expense<i class="fas fa-plus-square right"></i></button>
       </div>
     </div>
   </form>
