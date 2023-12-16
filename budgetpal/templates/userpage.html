@@ -65,7 +65,8 @@
           <strong>Description:</strong> {{ expense.description or 'N/A' }}<br />
           <strong>Date:</strong> {{ expense.expense_date or 'N/A' }}
           <div class="expenses-buttons-container">
-            {% if expense_category and expense_category.name not in ['Income', 'Saving'] %}
+            {% if expense_category and expense_category.name not in ['Income',
+            'Saving'] %}
             <a
               href="{{ url_for('edit_expense', expense_id=expense.id) }}"
               class="btn green accent-4"

@@ -67,11 +67,15 @@
               <a href="#" class="double-font-size secondary-color">Help</a>
             </li>
             <li>
+            {% if current_user.is_anonymous == True %}
               <a
                 href="{{ url_for('loggin') }}"
                 class="double-font-size secondary-color"
                 >Login</a
               >
+            {% else %}
+            <a href="{{ url_for('loggout') }}" class="double-font-size secondary-color">Logout</a>
+            {% endif %}
             </li>
             <li>
               <a
