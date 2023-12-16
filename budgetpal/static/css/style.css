@@ -77,7 +77,6 @@ main {
     font-size: 2em;
 }
 
-.footer-icon {
-    height: 20px;
-    width: 20px;
+.page-footer {
+    padding-bottom: 20px;
 }
