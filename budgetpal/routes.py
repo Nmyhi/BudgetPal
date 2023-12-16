@@ -109,6 +109,31 @@ def edit_income(income_id):
     prev_amount = expense.amount
     categories = Category.query.all()
     if request.method == "POST":
+        current_amount = float(request.form.get("income_amount"))
+        if prev_amount > current_amount:
+            calculated_difference = prev_amount - current_amount
+            current_user.balance -= calculated_difference
+
+            expense.amount = request.form.get("income_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("income_category")
+
+            db.session.commit()
+        if prev_amount < current_amount:
+            calculated_difference = current_amount - prev_amount
+            current_user.balance += calculated_difference
+
+            expense.amount = request.form.get("income_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("income_category")
+
+            db.session.commit()
+        expense.amount = request.form.get("income_amount")
+        expense.description = request.form.get("expense_description")
+        expense.expense_date = request.form.get("expense_date")
+        expense.category_id = request.form.get("income_category")
         return redirect(url_for('userpage'))
     return render_template("edit_income.html", expense=expense, categories=categories)
 
@@ -119,6 +144,33 @@ def edit_saving(saving_id):
     prev_amount = expense.amount
     categories = Category.query.all()
     if request.method == "POST":
+        current_amount = float(request.form.get("saving_amount"))
+        if prev_amount > current_amount:
+            calculated_difference = prev_amount - current_amount
+            current_user.balance += calculated_difference
+            current_user.savings -= calculated_difference
+
+            expense.amount = request.form.get("saving_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("saving_category")
+
+            db.session.commit()
+        if prev_amount < current_amount:
+            calculated_difference = current_amount - prev_amount
+            current_user.balance -= calculated_difference
+            current_user.savings += calculated_difference
+
+            expense.amount = request.form.get("saving_amount")
+            expense.description = request.form.get("expense_description")
+            expense.expense_date = request.form.get("expense_date")
+            expense.category_id = request.form.get("saving_category")
+
+            db.session.commit()
+        expense.amount = request.form.get("saving_amount")
+        expense.description = request.form.get("expense_description")
+        expense.expense_date = request.form.get("expense_date")
+        expense.category_id = request.form.get("saving_category")
         return redirect(url_for('userpage'))
     return render_template("edit_saving.html", expense=expense, categories=categories)
 

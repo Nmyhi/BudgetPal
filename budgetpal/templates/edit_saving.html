@@ -13,8 +13,8 @@
           class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"
         ></i>
         <input
-          id="expense_amount"
-          name="expense_amount"
+          id="saving_amount"
+          name="saving_amount"
           value="{{ expense.amount }}"
           minlength="3"
           maxlength="25"
@@ -22,7 +22,7 @@
           class="validate"
           required
         />
-        <label for="expense_amount">Expense amount</label>
+        <label for="saving_amount">Saving amount</label>
       </div>
     </div>
     <!-- Description -->
@@ -63,8 +63,8 @@
     <div class="row">
       <div class="input-field col s12">
         <select
-          id="expense_category"
-          name="expense_category"
+          id="saving_category"
+          name="saving_category"
           class="validate"
           required
         >
@@ -82,14 +82,14 @@
           </option>
           {% endif %} {% endfor %}
         </select>
-        <label for="expense_category">Choose a Category</label>
+        <label for="saving_category">Choose a Category</label>
       </div>
     </div>
     <!-- submit button -->
     <div class="row">
       <div class="col s12 center-align">
         <button type="submit" class="btn-large light-blue darken-1">
-          Edit Expense<i class="fas fa-plus-square right"></i>
+          Edit Saving<i class="fas fa-plus-square right"></i>
         </button>
       </div>
     </div>
