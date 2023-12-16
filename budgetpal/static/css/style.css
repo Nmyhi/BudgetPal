@@ -84,3 +84,7 @@ main {
 .btn-large {
     margin: 5px
 }
+
+.small-margin-right {
+    margin-right: 5px;
+}

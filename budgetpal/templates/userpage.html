@@ -48,10 +48,10 @@
 </div>
 <div class="row">
   <div class="col s10">
-    <ul class="collection">
-      <li class="collection-item">Expenses</li>
+    <ul class="collection grey darken-3">
+      <li class="collection-item grey darken-3">Expenses</li>
       {% for expense in expenses %}
-      <li class="collection-item expenses-collection-item">
+      <li class="collection-item expenses-collection-item grey darken-3">
         {% set expense_category = categories|selectattr('id', 'equalto',
         expense.category_id)|first %} {% if expense_category %}
         <img
@@ -68,25 +68,25 @@
             {% if expense_category and expense_category.name == 'Income'%}
             <a
               href="{{ url_for('edit_income', income_id=expense.id) }}"
-              class="btn green accent-4"
+              class="btn green accent-4 small-margin-right"
               >Edit</a
             >
             {% elif expense_category and expense_category.name == 'Saving' %}
             <a
               href="{{ url_for('edit_saving', saving_id=expense.id) }}"
-              class="btn green accent-4"
+              class="btn green accent-4 small-margin-right"
               >Edit</a
             >
             {% else %}
             <a
               href="{{ url_for('edit_expense', expense_id=expense.id) }}"
-              class="btn green accent-4"
+              class="btn green accent-4 small-margin-right"
               >Edit</a
             >
             {% endif %}
             <a
               href="{{ url_for('delete_expense', expense_id=expense.id) }}"
-              class="btn red"
+              class="btn red small-margin-right"
               >Delete</a
             >
           </div>
