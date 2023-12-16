@@ -64,9 +64,6 @@
               >
             </li>
             <li>
-              <a href="#" class="double-font-size secondary-color">Help</a>
-            </li>
-            <li>
             {% if current_user.is_anonymous == True %}
               <a
                 href="{{ url_for('loggin') }}"
