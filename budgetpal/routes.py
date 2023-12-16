@@ -8,18 +8,18 @@ from budgetpal.forms import RegistrationForm, LoginForm
 from budgetpal.models import User, Expense, Category
 from budgetpal import app, db
 
+
 # Home route
-
-
 @app.route("/")
 def home():
+    """Render the home page"""
     return render_template("index.html")
 
+
 # Register route
-
-
 @app.route("/register", methods=["POST", "GET"])
 def register():
+    """Render the registration page and handles the registration"""
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -28,11 +28,12 @@ def register():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('registration.html', form=form)
+
+
 # Login route
-
-
 @app.route("/sign_in_user", methods=["GET", "POST"])
 def sign_in_user():
+    """Render the login page and handles the login"""
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -42,18 +43,20 @@ def sign_in_user():
             return redirect(next or url_for('userpage'))
         flash('Invalid email address or Password.')
     return render_template('sign_in_user.html', form=form)
+
+
 # Logout route
-
-
 @app.route("/sign_out_user")
 def sign_out_user():
+    """Log the user out"""
     logout_user()
     return redirect(url_for('home'))
+
+
 # Userpage route
-
-
 @app.route("/userpage")
 def userpage():
+    """Render the user page"""
     # query the expenses of the current user
     if current_user.is_anonymous != True:
         expenses = Expense.query.filter_by(user_id=current_user.id).all()
@@ -61,11 +64,12 @@ def userpage():
         return render_template("userpage.html", expenses=expenses, categories=categories)
     else:
         return render_template("userpage.html")
+
+
 # Add income route
-
-
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
+    """Render the add_income page and handle the user balance update"""
     if request.method == "POST":
         current_user_info = User.query.filter_by(id=current_user.id).first()
         income_amount = float(request.form.get("income_amount"))
@@ -83,11 +87,13 @@ def add_income():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_income.html", categories=categories)
+
+
 # Add expense route
-
-
 @app.route("/add_expense", methods=["GET", "POST"])
 def add_expense():
+    """Render the add_expense page and handle the user saving and balance update
+    when the expense was a saving"""
     current_user_info = User.query.filter_by(id=current_user.id).first()
     if request.method == "POST":
         expense = Expense(
@@ -111,11 +117,12 @@ def add_expense():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_expense.html", categories=categories)
+
+
 # Edit income route
-
-
 @app.route("/edit_income/<int:income_id>", methods=["GET", "POST"])
 def edit_income(income_id):
+    """Render the edit_income page and handle the user balance update"""
     expense = Expense.query.get_or_404(income_id)
     prev_amount = expense.amount
     categories = Category.query.all()
@@ -149,11 +156,12 @@ def edit_income(income_id):
         expense.category_id = request.form.get("income_category")
         return redirect(url_for('userpage'))
     return render_template("edit_income.html", expense=expense, categories=categories)
+
+
 # Edit saving route
-
-
 @app.route("/edit_saving/<int:saving_id>", methods=["GET", "POST"])
 def edit_saving(saving_id):
+    """Render the edit_saving page and handle the user balance"""
     expense = Expense.query.get_or_404(saving_id)
     prev_amount = expense.amount
     categories = Category.query.all()
@@ -190,11 +198,11 @@ def edit_saving(saving_id):
         return redirect(url_for('userpage'))
     return render_template("edit_saving.html", expense=expense, categories=categories)
 
+
 # Edit expense route
-
-
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
+    """Render the edit_expense page and handle the user balance"""
     expense = Expense.query.get_or_404(expense_id)
     prev_amount = expense.amount
     categories = Category.query.all()
@@ -231,11 +239,11 @@ def edit_expense(expense_id):
         return redirect(url_for('userpage'))
     return render_template("edit_expense.html", expense=expense, categories=categories)
 
+
 # Delete expense route
-
-
 @app.route("/delete_expense/<int:expense_id>")
 def delete_expense(expense_id):
+    """Delete the expense and handle the user income and saving if it was an income or saving"""
     expense = Expense.query.get_or_404(expense_id)
 
     # subtract the income amount from the balance if it was an income
@@ -256,11 +264,11 @@ def delete_expense(expense_id):
 
     return redirect(url_for('userpage'))
 
+
 # Add category route
-
-
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """Render the add_category page"""
     if request.method == "POST":
         category = Category(
             name=request.form.get("category_name"),
