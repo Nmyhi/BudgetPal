@@ -10,7 +10,7 @@
     <!-- Display message if there is no user logged in -->
     {% if current_user.is_anonymous == True %}
     <div>
-      <span>No User, Please<a href="{{ url_for('loggin') }}">Login</a></span>
+      <span>No User, Please<a href="{{ url_for('sign_in_user') }}">Login</a></span>
     </div>
     {% else %}
     <!-- Welcome the user if logged in -->
@@ -24,7 +24,7 @@
       <!-- Add category button -->
       <a href="{{ url_for('add_category') }}" class="btn-large secondary-color light-blue darken-4">Add Category <i class="fa-solid fa-layer-group"></i></a>
       <!-- Logout button -->
-      <a href="{{ url_for('loggout') }}" class="btn-large secondary-color light-blue darken-4">Logout <i class="fa-solid fa-person-walking-arrow-right"></i></a>
+      <a href="{{ url_for('sign_out_user') }}" class="btn-large secondary-color light-blue darken-4">Logout <i class="fa-solid fa-person-walking-arrow-right"></i></a>
     </div>
     {% endif %}
   </div>

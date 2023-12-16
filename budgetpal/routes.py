@@ -28,12 +28,11 @@ def register():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('registration.html', form=form)
-
 # Login route
 
 
-@app.route("/loggin", methods=["GET", "POST"])
-def loggin():
+@app.route("/sign_in_user", methods=["GET", "POST"])
+def sign_in_user():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -42,16 +41,14 @@ def loggin():
             next = request.args.get("next")
             return redirect(next or url_for('userpage'))
         flash('Invalid email address or Password.')
-    return render_template('loggin.html', form=form)
-
+    return render_template('sign_in_user.html', form=form)
 # Logout route
 
 
-@app.route("/loggout")
-def loggout():
+@app.route("/sign_out_user")
+def sign_out_user():
     logout_user()
     return redirect(url_for('home'))
-
 # Userpage route
 
 
@@ -64,7 +61,6 @@ def userpage():
         return render_template("userpage.html", expenses=expenses, categories=categories)
     else:
         return render_template("userpage.html")
-
 # Add income route
 
 
@@ -87,7 +83,6 @@ def add_income():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_income.html", categories=categories)
-
 # Add expense route
 
 
@@ -116,7 +111,6 @@ def add_expense():
         return redirect(url_for('userpage'))
     categories = Category.query.all()
     return render_template("add_expense.html", categories=categories)
-
 # Edit income route
 
 
@@ -155,7 +149,6 @@ def edit_income(income_id):
         expense.category_id = request.form.get("income_category")
         return redirect(url_for('userpage'))
     return render_template("edit_income.html", expense=expense, categories=categories)
-
 # Edit saving route
 
 
@@ -197,8 +190,9 @@ def edit_saving(saving_id):
         return redirect(url_for('userpage'))
     return render_template("edit_saving.html", expense=expense, categories=categories)
 
-
 # Edit expense route
+
+
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
