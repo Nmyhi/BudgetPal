@@ -5,19 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    var navbar = document.querySelector("nav");
-    var logo = document.querySelector(".brand-logo img");
+    // navbar and logo
+    let navbar = document.querySelector("nav");
+    let logo = document.querySelector(".brand-logo img");
 
     // Set the navbar height to the logo height
     navbar.style.height = logo.offsetHeight + "px";
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    // data picker
     let datePicker = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePicker);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    // category picker
     let categoryPicker = document.querySelectorAll('select');
     M.FormSelect.init(categoryPicker);
 });

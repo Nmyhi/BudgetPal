@@ -1,3 +1,4 @@
+/* general body formatting */
 body {
     background-color: #4c5d64;
     display: flex;
@@ -6,24 +7,24 @@ body {
     font-family: 'Bebas Neue', sans-serif;
 }
 
+/* Main section formatting */
 main {
     flex: 1 0 auto;
 }
 
-.small-padding {
-    padding-left: 5px;
-    padding-right: 5px;
+/* Home page */
+.welcome-display {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.secondary-color {
-    color: #e69f17;
+.welcome-display h3 {
+    font-family: 'sans-serif';
 }
 
-.category_logo {
-    max-width: 50px;
-    max-height: 50px;
-}
-
+/* User page */
 .expenses-collection-item {
     display: flex;
     flex-direction: row;
@@ -60,31 +61,36 @@ main {
     margin-left: 5px;
 }
 
-.welcome-display {
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.secondary-color {
+    color: #e69f17;
 }
 
-
-.welcome-display h3 {
-    font-family: 'sans-serif';
+/* Category logo */
+.category_logo {
+    max-width: 50px;
+    max-height: 50px;
 }
 
+/* Footer */
+.page-footer {
+    padding-bottom: 20px;
+}
+
+/* Minor formatting elements */
+.small-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
 .double-font-size {
     font-size: 2em;
 }
 
-.page-footer {
-    padding-bottom: 20px;
-}
-
-.btn-large {
-    margin: 5px
-}
-
 .small-margin-right {
     margin-right: 5px;
+}
+
+/* Overriding btn-large materialize class margin setting */
+.btn-large {
+    margin: 5px
 }
