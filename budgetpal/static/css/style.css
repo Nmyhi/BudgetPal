@@ -76,3 +76,8 @@ main {
 .double-font-size {
     font-size: 2em;
 }
+
+.footer-icon {
+    height: 20px;
+    width: 20px;
+}
