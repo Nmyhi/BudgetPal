@@ -103,6 +103,27 @@ def add_expense():
     return render_template("add_expense.html", categories=categories)
 
 
+@app.route("/edit_income/<int:income_id>", methods=["GET", "POST"])
+def edit_income(income_id):
+    expense = Expense.query.get_or_404(income_id)
+    prev_amount = expense.amount
+    categories = Category.query.all()
+    if request.method == "POST":
+        return redirect(url_for('userpage'))
+    return render_template("edit_income.html", expense=expense, categories=categories)
+
+
+@app.route("/edit_saving/<int:saving_id>", methods=["GET", "POST"])
+def edit_saving(saving_id):
+    expense = Expense.query.get_or_404(saving_id)
+    prev_amount = expense.amount
+    categories = Category.query.all()
+    if request.method == "POST":
+        return redirect(url_for('userpage'))
+    return render_template("edit_saving.html", expense=expense, categories=categories)
+
+
+
 @app.route("/edit_expense/<int:expense_id>", methods=["GET", "POST"])
 def edit_expense(expense_id):
     expense = Expense.query.get_or_404(expense_id)
