@@ -13,7 +13,7 @@ This is a memory game web application which is fully responsive. This site has b
 * [BugetPal - TESTING](#bugetpal---testing)
   * [CONTENTS](#contents)
   * [AUTOMATED TESTING](#automated-testing)
-    * [ W3C Validator](#w3c-validator)
+    * [ PEP8 validation](#pep8-validation)
     * [Lighthouse](#lighthouse)
   * [MANUAL TESTING](#manual-testing)
     * [Testing User Stories](#testing-user-stories)
@@ -28,9 +28,13 @@ This is a memory game web application which is fully responsive. This site has b
 
 The automated Testing includes all the testing that is carried out by test code like jest, W3C HTML, and CSS validation.
 
-###  W3C Validator
+###  PEP8 validation
 
-I had issues with validating my html pages because the flask elements.
+[init_py_validation](/budgetpal/static/images/init_py_validation.png)
+[run_py_vlidation](/budgetpal/static/images/run_py_validation.png)
+[forms_py_valiation](/budgetpal/static/images/forms_py_validation.png)
+[models_py_validation](/budgetpal/static/images/models_py_validation.png)
+[routes_py_validation](/budgetpal/static/images/routes_py_validation.png)
 
 ### Lighthouse
 
