@@ -1,7 +1,7 @@
 # BudgetPal
 
 Welcome to BudgetPal!
-This app is to help managing personal expenses.
+An expenses manager app is a powerful tool designed to help you take control of your financial well-being by effortlessly organizing and tracking your spending. Whether you are a meticulous budgeter or just want to gain a clearer understanding of your financial habits, this app is tailored to simplify the process of managing your expenses.
 
 [App Preview](#)
 
@@ -55,51 +55,56 @@ This app is to help managing personal expenses.
 
 ### Initial Discussion
 
-BudgetPal is a personal expenses manager wich is created to help kepping track of personal expences such as balance, income, expenses + categories, financial goals and
-saving account interest calculation.
-The project was inspired by a personal idea which was managing my personal expenses in a more interactive way other than using an excel sheet.
+BudgetPal is a personal expenses manager wich is created to help to keep track of personal expences such as balance, income, savings, expenses + categories.
+The project was inspired by a personal issue which is to manage my personal expenses in a more interactive way other than using an excel sheet.
 
 #### Key information for the site
 
-- What is the current Balance of our personal income/expenses.
-- What are the expenses amount and categories the money was spent on by date.
-- What was the balance by the end of the month which is going to be rolled over to the next month.
-- The amount has been transferred to the savings account.
-- The interest rate showing on the savings account.
-- Budget goals such as summer holiday, car purchase etc with the amount required and compared with the savings account.
+- Create an account
+- Login to an account
+- Logout from an account
+- Show the current Balance and Saving on the user's page.
+- Show the expenses, savings and incomes amount and categories.
+- Show the expenses, savings and incomes details like: date, description.
+- Show the saving amount transferred to the savings account.
+- Calculate Balance and saving.
+- Edit and delete expenses, savings and incomes
+- Add extra categories
 - useful graphics to represent the data.
 
 ### User Stories
 
-- To be able to view the site on a range of device sizes.
-- To allow people to sign up and log in to the site.
-- To be able to add records of expenses
-- To be able to see the Balance
-- To be able to see the spendings and the categories of the expenses.
-- To have a visual representation of the expenses.
-- To be able to set saving goals.
-- To be able to see the total savings.
-
 #### Client Goals
 
-- To be able to create an account.
-- To be able to create read edit and delete expenses.
 - To help the clients to have a better understanding of their spending.
+- To navigate in the menu.
+- To be able to view the site on a range of device sizes.
+- To allow people to sign up, log in and log out on the site the site.
+- To be able to add records of categories, expenses, savings and incomes.
+- To be able to modify expenses, savings and incomes.
+- To be able to delete expenses, savings and incomes.
+- To be able to see the updated Balance and Savings.
+- To be able to see the details of the expenses.
 
 #### First Time Visitor Goals
 
-- To be able to create an account and log in.
+- To be able to create an account, log in or log out.
 - To be able to create read edit and delete expenses.
+- To be able to contact the developer in case of ideas to develop the project
 
 #### Returning Visitor Goals
 
-- To be able to log in and manage their expenses savings and balance.
-- To be able to see the savings as well.
+- To be able to create an account, log in or log out.
+- To be able to create read edit and delete expenses.
+- To be able to contact the developer in case of ideas to develop the project.
 
 #### Frequent Visitor Goals
 
-- To be able to log in and manage their expenses savings and balance.
-- To be able to see the savings as well.
+- To be able to create an account, log in or log out.
+- To be able to create read edit and delete expenses.
+- To be able to contact the developer in case of ideas to develop the project.
+- To Gain insights into the user's spending habits and financial patterns to make informed decisions.
+- Set achievable financial goals and track your progress toward a secure financial future.
 
 ---
 
@@ -107,9 +112,7 @@ The project was inspired by a personal idea which was managing my personal expen
 
 ## Database
 
-- Database design considerations
-
-[Database design link](#)
+- [Database design considerations](/DATABASE_README.md)
 
 ## Front-end
 

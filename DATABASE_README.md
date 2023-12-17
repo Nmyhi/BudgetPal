@@ -1,78 +1,109 @@
-# Database Name
-
-Brief description of the purpose and scope of the database.
-
-## Table of Contents
-- [Database Name](#database-name)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Schema](#schema)
-  - [Tables](#tables)
-    - [Table 1](#table-1)
-    - [Table 2](#table-2)
-  - [Relationships](#relationships)
-  - [Indexes](#indexes)
-  - [Stored Procedures](#stored-procedures)
-  - [Views](#views)
-  - [Sample Queries](#sample-queries)
-  - [Setup and Installation](#setup-and-installation)
-  - [Contribution Guidelines](#contribution-guidelines)
-  - [License](#license)
+# Expense Manager App Database Design
 
 ## Overview
 
-Provide a high-level overview of the database, including its purpose, target audience, and any other relevant information.
+This database design is for an Expense Manager application that helps users track and manage their expenses. The application includes user authentication, expense tracking, and predefined expense categories.
 
-## Schema
+## Table of Contents
 
-Describe the overall schema design, including the main entities and their relationships.
+* [Expense Manager App Database Design](#expense-manager-app-database-design)
+  * [Overview](#overview)
+  * [Table of Contents](#table-of-contents)
+  * [Database Schema](#database-schema)
+    * [User](#user)
+    * [Expense](#expense)
+    * [Category](#category)
+  * [ER Diagram](#er-diagram)
+  * [Table Descriptions](#table-descriptions)
+    * [User](#user-1)
+    * [Expense](#expense-1)
+    * [Category](#category-1)
+  * [Sample Queries](#sample-queries)
 
-## Tables
+## Database Schema
 
-### Table 1
+### User
 
-- **Description**: Brief description of what this table is used for.
-- **Columns**:
-  - `column1`: Description of the first column.
-  - `column2`: Description of the second column.
-- **Constraints**: Any constraints applied to this table.
+- **Columns:**
+  - `id`: Integer, primary key
+  - `username`: String(50), unique, not nullable
+  - `password_hash`: String(150), not nullable
+  - `email`: String(150), unique, index
+  - `balance`: Float, default 0.0, not nullable
+  - `savings`: Float, default 0.0, not nullable
+  - `expenses`: Relationship with Expense model
+  - `joined_at`: DateTime, default datetime.utcnow, index
 
-### Table 2
+### Expense
 
-- **Description**: Brief description of what this table is used for.
-- **Columns**:
-  - `column1`: Description of the first column.
-  - `column2`: Description of the second column.
-- **Constraints**: Any constraints applied to this table.
+- **Columns:**
+  - `id`: Integer, primary key
+  - `amount`: Float, not nullable
+  - `description`: String(255)
+  - `expense_date`: Date, not nullable
+  - `user_id`: Integer, foreign key to User.id, not nullable
+  - `category_id`: Integer, foreign key to Category.id, nullable
+  - `category`: Relationship with Category model
 
-## Relationships
+### Category
 
-Describe the relationships between different tables in the database.
+- **Columns:**
+  - `id`: Integer, primary key
+  - `name`: String(50), unique, not nullable
+  - `logo_url`: String(255), not nullable
 
-## Indexes
+## ER Diagram
 
-List any indexes created on the tables for optimization purposes.
+Include an Entity-Relationship (ER) diagram to illustrate the relationships between entities in the database.
 
-## Stored Procedures
+![ER Diagram](link-to-er-diagram-image.png)
 
-If applicable, provide information about any stored procedures created for data manipulation.
+## Table Descriptions
 
-## Views
+### User
 
-If applicable, list and describe any views created for querying and reporting purposes.
+- **Columns:**
+  - `id`: Integer, primary key
+  - `username`: String(50), unique, not nullable - The username of the user.
+  - `password_hash`: String(150), not nullable - The hashed password of the user.
+  - `email`: String(150), unique, index - The email address of the user.
+  - `balance`: Float, default 0.0, not nullable - The current balance of the user.
+  - `savings`: Float, default 0.0, not nullable - The amount of savings for the user.
+  - `expenses`: Relationship with Expense model - One-to-Many relationship with Expense table.
+  - `joined_at`: DateTime, default datetime.utcnow, index - The date and time when the user joined.
+
+### Expense
+
+- **Columns:**
+  - `id`: Integer, primary key
+  - `amount`: Float, not nullable - The amount of the expense.
+  - `description`: String(255) - A description or note for the expense.
+  - `expense_date`: Date, not nullable - The date when the expense occurred.
+  - `user_id`: Integer, foreign key to User.id, not nullable - The user associated with the expense.
+  - `category_id`: Integer, foreign key to Category.id, nullable - The category associated with the expense.
+  - `category`: Relationship with Category model - Many-to-One relationship with Category table.
+
+### Category
+
+- **Columns:**
+  - `id`: Integer, primary key
+  - `name`: String(50), unique, not nullable - The name of the category.
+  - `logo_url`: String(255), not nullable - The URL to the logo/icon representing the category.
 
 ## Sample Queries
 
-Provide some sample SQL queries to showcase typical operations on the database.
+Include some sample SQL queries that demonstrate how to interact with the database.
 
-## Setup and Installation
+```sql
+-- Example Select Query
+SELECT * FROM User WHERE username = 'example';
 
-Include instructions for setting up the database, including any scripts or commands needed.
+-- Example Insert Query
+INSERT INTO Expense (amount, description, expense_date, user_id, category_id) VALUES (100.0, 'Groceries', '2023-01-01', 1, 1);
 
-## Contribution Guidelines
+-- Example Update Query
+UPDATE User SET balance = balance - 50.0 WHERE id = 1;
 
-If others are contributing to the database design, outline guidelines for contributions.
-
-## License
-
-Specify the license under which the database is distributed.
+-- Example Delete Query
+DELETE FROM Expense WHERE id = 1;
+```
