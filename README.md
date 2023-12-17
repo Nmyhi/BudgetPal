@@ -11,42 +11,42 @@ An expenses manager app is a powerful tool designed to help you take control of 
 
 ## CONTENTS
 
-- [BudgetPal](#budgetpal)
-  - [CONTENTS](#contents)
-  - [User Experience (UX)](#user-experience-ux)
-    - [Initial Discussion](#initial-discussion)
-      - [Key information for the site](#key-information-for-the-site)
-    - [User Stories](#user-stories)
-      - [Client Goals](#client-goals)
-      - [First Time Visitor Goals](#first-time-visitor-goals)
-      - [Returning Visitor Goals](#returning-visitor-goals)
-      - [Frequent Visitor Goals](#frequent-visitor-goals)
-  - [Design](#design)
-  - [Database](#database)
-    - [Colour Scheme](#colour-scheme)
-    - [Typography](#typography)
-    - [Imagery](#imagery)
-    - [Wireframes](#wireframes)
-    - [Desktop view wireframes](#desktop-view-wireframes)
-    - [Mobile and tablet view wireframes](#mobile-and-tablet-view-wireframes)
-  - [Features](#features)
-    - [General features on each page](#general-features-on-each-page)
-    - [Future Implementations](#future-implementations)
-    - [Accessibility](#accessibility)
-  - [Technologies Used](#technologies-used)
-    - [Languages Used](#languages-used)
-    - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
-  - [Deployment \& Local Development](#deployment--local-development)
-    - [Deployment](#deployment)
-    - [Local Development](#local-development)
-      - [How to Fork](#how-to-fork)
-      - [How to Clone](#how-to-clone)
-  - [Testing](#testing)
-  - [Credits](#credits)
-    - [Code Used](#code-used)
-    - [Content](#content)
-    - [ Media](#media)
-    - [ Acknowledgments](#acknowledgments)
+* [BudgetPal](#budgetpal)
+  * [CONTENTS](#contents)
+  * [User Experience (UX)](#user-experience-ux)
+    * [Initial Discussion](#initial-discussion)
+      * [Key information for the site](#key-information-for-the-site)
+    * [User Stories](#user-stories)
+      * [Client Goals](#client-goals)
+      * [First Time Visitor Goals](#first-time-visitor-goals)
+      * [Returning Visitor Goals](#returning-visitor-goals)
+      * [Frequent Visitor Goals](#frequent-visitor-goals)
+  * [Design](#design)
+  * [Database](#database)
+    * [Colour Scheme](#colour-scheme)
+    * [Typography](#typography)
+    * [Imagery](#imagery)
+    * [Wireframes](#wireframes)
+    * [Desktop view wireframes](#desktop-view-wireframes)
+    * [Mobile and tablet view wireframes](#mobile-and-tablet-view-wireframes)
+  * [Features](#features)
+    * [General features on each page](#general-features-on-each-page)
+    * [Future Implementations](#future-implementations)
+    * [Accessibility](#accessibility)
+  * [Technologies Used](#technologies-used)
+    * [Languages Used](#languages-used)
+    * [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
+  * [Deployment \& Local Development](#deployment--local-development)
+    * [Deployment](#deployment)
+    * [Local Development](#local-development)
+      * [How to Fork](#how-to-fork)
+      * [How to Clone](#how-to-clone)
+  * [Testing](#testing)
+  * [Credits](#credits)
+    * [Code Used](#code-used)
+    * [Content](#content)
+    * [ Media](#media)
+    * [ Acknowledgments](#acknowledgments)
 
 ---
 
@@ -338,6 +338,14 @@ Elephant SQL - To host my database.
 - Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
 
 pip freeze --local > requirements.txt
+
+- add a runtime.txt file to the root directory and add this:
+
+python-3.9.17
+
+- add this line to requirements.txt:
+
+blinker==1.7.0
 
 - Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
 
