@@ -111,7 +111,7 @@ The project was inspired by a personal issue which is to manage my personal expe
 
 ## Database
 
-- [Database design considerations](/database_readme.md)
+- [Database design considerations](/DATABASE_README.md)
 
 ### Colour Scheme
 
@@ -198,6 +198,16 @@ All pages on the website are responsive and have:
 - A footer with my own social links.
 
 ![Footer screenshot](/budgetpal/static/images/footer.png)
+
+- Home page:
+
+The home page welcome the user logged in or ask the user to log in if there is no user logged in yet:
+
+- User logged in:
+  ![User logged in home screen](/budgetpal/static/images/homepage_user_logged_in.png)
+
+- User logged out:
+  ![User logged out home screen](/budgetpal/static/images/homepage_user_logged_out.png)
 
 ### Future Implementations
 
