@@ -56,7 +56,7 @@ This database design is for an Expense Manager application that helps users trac
 
 Include an Entity-Relationship (ER) diagram to illustrate the relationships between entities in the database.
 
-![ER Diagram](link-to-er-diagram-image.png)
+![ER Diagram](/budgetpal/static/images/er_diagram.png)
 
 ## Table Descriptions
 
