@@ -27,7 +27,8 @@ An expenses manager app is a powerful tool designed to help you take control of 
     * [Typography](#typography)
     * [Imagery](#imagery)
     * [Wireframes](#wireframes)
-    * [Desktop view wireframes](#desktop-view-wireframes)
+    * [Desktop view wireframes:](#desktop-view-wireframes)
+    * [Mobile and tablet view wireframes:](#mobile-and-tablet-view-wireframes)
   * [Features](#features)
     * [General features on each page](#general-features-on-each-page)
     * [Future Implementations](#future-implementations)
@@ -147,41 +148,90 @@ I used a favicon crator for my favicon.
 
 ### Wireframes
 
+### Desktop view wireframes:
 
-Desktop view wireframes:
+[Home page](/budgetpal/static/images/homescreen_pc.png)
 
-[Main Menu](assets/images/readme/desktopmainmenuwireframe.png)
+[Userpage](/budgetpal/static/images/userpage_pc.png)
 
-[Game](assets/images/readme/desktopgamewindowwireframe.png)
+[Login page](/budgetpal/static/images/login_pc.png)
 
-[Hi-Scores](assets/images/readme/desktophiscoreswireframe.png)
+[Resigter page](/budgetpal/static/images/sign_up_pc.png)
 
-[Help](assets/images/readme/desktophelpwireframe.png)
+### Mobile and tablet view wireframes:
 
-Mobile and tablet view wireframes:
+[Home page](/budgetpal/static/images/homescreen_mobile_tablet.png)
 
-[Main Menu](assets/images/readme/mobilemainmenuwireframe.png)
+[User page](/budgetpal/static/images/userpage_mobile_tablet.png)
 
-[Game](assets/images/readme/mobilegamewindowwireframe.png)
+[Login page](/budgetpal/static/images/login_mobile_tablet.png)
 
-[Hi-Scores](assets/images/readme/mobilehiscoreswireframe.png)
-
-[Help](assets/images/readme/mobilehelpwireframe.png)
+[Register page](/budgetpal/static/images/sign_up_mobile_tablet.png)
 
 There are lots of different options to create your wireframes - Code Institute students can access [Balsamiq](https://balsamiq.com/) as part of the course.
 
 Some other options include [Figma](https://www.figma.com/), [AdobeXD](https://www.adobe.com/products/xd.html), [Sketch](https://www.sketch.com/?utm_source=google&utm_medium=cpc&adgroup=uxui&device=c&matchtype=e&utm_campaign=ADDICTMOBILE_SKETCH_GAD_DG_UK_T1_ALWAYS-ON_S_TRF_PROS_BRAND&utm_term=sketch&utm_source=google&utm_medium=cpc&utm_content=TOF_BRND__generic&hsa_acc=8710913982&hsa_cam=16831089317&hsa_grp=134620695759&hsa_ad=592060065319&hsa_src=g&hsa_tgt=kwd-14921750&hsa_kw=sketch&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwr4eYBhDrARIsANPywCjRIFn93DMezYnsyE5Fic_8l8kynJtut0GYMU01TiohHjwziFtlH0gaAhteEALw_wcB) and [Mockup](https://apps.apple.com/us/app/mockup-sketch-ui-ux/id1527554407) to name just a few! Or you can even go old school and get those wireframes completed using pen and paper. Just snap an image of the completed wireframes to add the images to the R
+
 ## Features
-
-👩🏻‍💻 View an example of a completed user experience section [here](https://github.com/kera-cudmore/TheQuizArms#Features)
-
-This section can be used to explain what pages your site is made up of.
 
 ### General features on each page
 
-If there is a feature that appears on all pages of your site, include it here. Examples of what to include would the the navigation, a footer and a favicon.
+The website contains:
 
-I then like to add a screenshot of each page of the site here, i use [amiresponsive](https://ui.dev/amiresponsive) which allows me to grab an image of the site as it would be displayed on mobile, tablet and desktop, this helps to show the responsiveness of the site.
+- Home page
+- User page
+- Login page/Logout
+- Register
+
+These pages DOM are modified by the python code flask and jinja2 syntax.
+
+All pages on the website are responsive and have:
+
+- A favicon in the browser tab.
+
+![Favicon tab](assets/images/readme/favicontab.png)
+
+- A header with the game title and logo.
+
+![Header screenshot](assets/images/readme/headerscreenshot.png)
+
+- A footer with my own social links.
+
+![Footer screenshot](assets/images/readme/footerscreenshot.png)
+
+The Main menu prvides 3 options.
+
+![Main Menu](assets/images/readme/mainmanuscreenshot.png)
+
+- Play menu: After clicking on the main menu the javaScript code modifies the DOM and a gamescreen appears with
+  an input window for entering the Username. The site will not let you to enter only spaces as a username and the maximum characters are limited to 15.
+
+![Play area](assets/images/readme/playwindow.png)
+
+- After the game starts the player has to find all the matchink colour pairs as fast as possible. The username displays in the top
+  left corner and the timer displays in the top riht corner.
+
+![Ingame Screenshot](assets/images/readme/ingamescreenshot.png)
+
+- When the player managed to find all the matching pairs the game displays the username and the time in the same window which was
+  the username input before. The player clicks the Save and Reset button and the highscore gets saved in the localstorage.
+
+![Endgame](assets/images/readme/endgamescreenshot.png)
+
+High Scores Screen
+
+- In the high-scores menu the javaScript code reads the data from the localstore and displays them in a top-10 Highscore table.
+  In the scrrenshot you can see incorrectly saved username data which still remained in my localstorage from an earlier stage of developement.
+
+![High-Scores](assets/images/readme/highscorescreenshot.png)
+
+Help menu
+
+- The help page provides some information about the game mechanics in case someone would need it.
+
+![Help](assets/images/readme/helpscreenshot.png)
+
+Each page has a menu button which takes back to the main menu. In reality the javaScript code modifies the DOM. The whole game is using only one html file(index.html)
 
 ### Future Implementations
 
