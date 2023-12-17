@@ -27,8 +27,8 @@ An expenses manager app is a powerful tool designed to help you take control of 
     * [Typography](#typography)
     * [Imagery](#imagery)
     * [Wireframes](#wireframes)
-    * [Desktop view wireframes:](#desktop-view-wireframes)
-    * [Mobile and tablet view wireframes:](#mobile-and-tablet-view-wireframes)
+    * [Desktop view wireframes](#desktop-view-wireframes)
+    * [Mobile and tablet view wireframes](#mobile-and-tablet-view-wireframes)
   * [Features](#features)
     * [General features on each page](#general-features-on-each-page)
     * [Future Implementations](#future-implementations)
@@ -148,7 +148,7 @@ I used a favicon crator for my favicon.
 
 ### Wireframes
 
-### Desktop view wireframes:
+### Desktop view wireframes
 
 [Home page](/budgetpal/static/images/homescreen_pc.png)
 
@@ -158,7 +158,7 @@ I used a favicon crator for my favicon.
 
 [Resigter page](/budgetpal/static/images/sign_up_pc.png)
 
-### Mobile and tablet view wireframes:
+### Mobile and tablet view wireframes
 
 [Home page](/budgetpal/static/images/homescreen_mobile_tablet.png)
 
@@ -189,49 +189,15 @@ All pages on the website are responsive and have:
 
 - A favicon in the browser tab.
 
-![Favicon tab](assets/images/readme/favicontab.png)
+![Favicon tab](/budgetpal/static/images/favicon_tab.png)
 
-- A header with the game title and logo.
+- A header with brand logo and navbar.
 
-![Header screenshot](assets/images/readme/headerscreenshot.png)
+![Navbar screenshot](/budgetpal/static/images/navbar.png)
 
 - A footer with my own social links.
 
-![Footer screenshot](assets/images/readme/footerscreenshot.png)
-
-The Main menu prvides 3 options.
-
-![Main Menu](assets/images/readme/mainmanuscreenshot.png)
-
-- Play menu: After clicking on the main menu the javaScript code modifies the DOM and a gamescreen appears with
-  an input window for entering the Username. The site will not let you to enter only spaces as a username and the maximum characters are limited to 15.
-
-![Play area](assets/images/readme/playwindow.png)
-
-- After the game starts the player has to find all the matchink colour pairs as fast as possible. The username displays in the top
-  left corner and the timer displays in the top riht corner.
-
-![Ingame Screenshot](assets/images/readme/ingamescreenshot.png)
-
-- When the player managed to find all the matching pairs the game displays the username and the time in the same window which was
-  the username input before. The player clicks the Save and Reset button and the highscore gets saved in the localstorage.
-
-![Endgame](assets/images/readme/endgamescreenshot.png)
-
-High Scores Screen
-
-- In the high-scores menu the javaScript code reads the data from the localstore and displays them in a top-10 Highscore table.
-  In the scrrenshot you can see incorrectly saved username data which still remained in my localstorage from an earlier stage of developement.
-
-![High-Scores](assets/images/readme/highscorescreenshot.png)
-
-Help menu
-
-- The help page provides some information about the game mechanics in case someone would need it.
-
-![Help](assets/images/readme/helpscreenshot.png)
-
-Each page has a menu button which takes back to the main menu. In reality the javaScript code modifies the DOM. The whole game is using only one html file(index.html)
+![Footer screenshot](/budgetpal/static/images/footer.png)
 
 ### Future Implementations
 
