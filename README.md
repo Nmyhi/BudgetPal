@@ -11,42 +11,42 @@ An expenses manager app is a powerful tool designed to help you take control of 
 
 ## CONTENTS
 
-* [BudgetPal](#budgetpal)
-  * [CONTENTS](#contents)
-  * [User Experience (UX)](#user-experience-ux)
-    * [Initial Discussion](#initial-discussion)
-      * [Key information for the site](#key-information-for-the-site)
-    * [User Stories](#user-stories)
-      * [Client Goals](#client-goals)
-      * [First Time Visitor Goals](#first-time-visitor-goals)
-      * [Returning Visitor Goals](#returning-visitor-goals)
-      * [Frequent Visitor Goals](#frequent-visitor-goals)
-  * [Design](#design)
-  * [Database](#database)
-    * [Colour Scheme](#colour-scheme)
-    * [Typography](#typography)
-    * [Imagery](#imagery)
-    * [Wireframes](#wireframes)
-    * [Desktop view wireframes](#desktop-view-wireframes)
-    * [Mobile and tablet view wireframes](#mobile-and-tablet-view-wireframes)
-  * [Features](#features)
-    * [General features on each page](#general-features-on-each-page)
-    * [Future Implementations](#future-implementations)
-    * [Accessibility](#accessibility)
-  * [Technologies Used](#technologies-used)
-    * [Languages Used](#languages-used)
-    * [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
-  * [Deployment \& Local Development](#deployment--local-development)
-    * [Deployment](#deployment)
-    * [Local Development](#local-development)
-      * [How to Fork](#how-to-fork)
-      * [How to Clone](#how-to-clone)
-  * [Testing](#testing)
-  * [Credits](#credits)
-    * [Code Used](#code-used)
-    * [Content](#content)
-    * [ Media](#media)
-    * [ Acknowledgments](#acknowledgments)
+- [BudgetPal](#budgetpal)
+  - [CONTENTS](#contents)
+  - [User Experience (UX)](#user-experience-ux)
+    - [Initial Discussion](#initial-discussion)
+      - [Key information for the site](#key-information-for-the-site)
+    - [User Stories](#user-stories)
+      - [Client Goals](#client-goals)
+      - [First Time Visitor Goals](#first-time-visitor-goals)
+      - [Returning Visitor Goals](#returning-visitor-goals)
+      - [Frequent Visitor Goals](#frequent-visitor-goals)
+  - [Design](#design)
+  - [Database](#database)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+    - [Wireframes](#wireframes)
+    - [Desktop view wireframes](#desktop-view-wireframes)
+    - [Mobile and tablet view wireframes](#mobile-and-tablet-view-wireframes)
+  - [Features](#features)
+    - [General features on each page](#general-features-on-each-page)
+    - [Future Implementations](#future-implementations)
+    - [Accessibility](#accessibility)
+  - [Technologies Used](#technologies-used)
+    - [Languages Used](#languages-used)
+    - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
+  - [Deployment \& Local Development](#deployment--local-development)
+    - [Deployment](#deployment)
+    - [Local Development](#local-development)
+      - [How to Fork](#how-to-fork)
+      - [How to Clone](#how-to-clone)
+  - [Testing](#testing)
+  - [Credits](#credits)
+    - [Code Used](#code-used)
+    - [Content](#content)
+    - [ Media](#media)
+    - [ Acknowledgments](#acknowledgments)
 
 ---
 
@@ -234,20 +234,20 @@ The resistration page is always accessible in case the user wants to register a 
 
 ### Future Implementations
 
-* Send registration credentials to the user via email after registration
-* Group expenses together by months
-* Show graphs of the expenses by categories to understand spending habits more.
-* Display goals and the goals progress using the saings budget.
+- Send registration credentials to the user via email after registration
+- Group expenses together by months
+- Show graphs of the expenses by categories to understand spending habits more.
+- Display goals and the goals progress using the saings budget.
 
 ### Accessibility
 
 I have been mindful during coding to ensure that the website is as accessible friendly as possible. I have achieved this by:
 
-* Using semantic HTML.
-* Using descriptive alt attributes on images on the site.
-* Ensuring that there is a sufficient colour contrast throughout the site.
-* Ensuring menus are accessible.
-* Using rel attributes on the anchor tags.
+- Using semantic HTML.
+- Using descriptive alt attributes on images on the site.
+- Ensuring that there is a sufficient colour contrast throughout the site.
+- Ensuring menus are accessible.
+- Using rel attributes on the anchor tags.
 
 ## Technologies Used
 
@@ -299,15 +299,128 @@ Elephant SQL - To host my database.
 
 ## Deployment & Local Development
 
-👩🏻‍💻 View an example of a completed Deployment & Local Development section [here](https://github.com/kera-cudmore/TheQuizArms#Deployment)
-
 ### Deployment
 
-Include instructions here on how to deploy your project. For your first project you will most likely be using GitHub Pages.
+- Migrate your database:
+
+- Register on ElephantSQL
+- Navigate to ElephantSQL.com and click “Log in”
+- Select “Sign in with GitHub”
+- Authorise ElephantSQL with your selected GitHub account
+  \*In the Create new team form:
+  Add a team name (your own name is fine)
+  Read and agree to the Terms of Service
+  Select Yes for GDPR
+  Provide your email address
+  Click “Create Team”
+- Your account is successfully created!
+- Click “Create New Instance”
+  \*Set up your plan
+  Give your plan a Name (this is commonly the name of the project)
+  Select the Tiny Turtle (Free) plan
+  You can leave the Tags field blank
+- Select “Select Region”
+- Select a data center near you
+- Then click “Review”
+- Check your details are correct and then click “Create instance”
+- Return to the ElephantSQL dashboard and click on the database instance name for this project
+- In the URL section, clicking the copy icon will copy the database URL to your clipboard
+- Leave this tab open, we will come back here later
+
+- In your IDE workspace:
+
+\*Before we can build our application on Heroku, we need to create a few files that Heroku will need to run our application:
+
+    A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
+
+    A Procfile which contains the start command to run the project.
+
+- Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
+
+pip freeze --local > requirements.txt
+
+- Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
+
+- Inside the file, add the following command
+  web: python run.py
+
+- Open your **init**.py file
+- Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL.
+
+app = Flask(**name**)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+
+if os.environ.get("DEVELOPMENT") == "True":
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+else:
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+
+- To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:
+
+if os.environ.get("DEVELOPMENT") == "True":
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+else:
+uri = os.environ.get("DATABASE_URL")
+if uri.startswith("postgres://"):
+uri = uri.replace("postgres://", "postgresql://", 1)
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
+
+- In your run.py set the debug mode off:
+
+import os
+from budgetpal import app
+
+if **name** == "**main**":
+app.run(
+host=os.environ.get("IP"),
+port=int(os.environ.get("PORT")),
+debug=False
+)
+
+- Save all your files and then add, commit and push your changes to GitHub
+
+- Heroku setup and deployment:
+
+- Log into Heroku.com and click “New” and then “Create a new app”
+
+- Choose a unique name for your app, select the region closest to you and click “Create app”
+
+- Go to the Settings tab of your new app
+
+- Click Reveal Config Vars
+
+- Return to your ElephantSQL tab and copy your database URL
+
+- Back on Heroku, add a Config Var called DATABASE_URL and paste your ElephantSQL database URL in as the value. Make sure you click “Add”
+
+- Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var. The result should look something like this:
+
+- Navigate to the “Deploy” tab of your app
+
+- In the Deployment method section, select “Connect to GitHub”
+
+- Search for your repo and click Connect
+
+- As we already have all our changes pushed to GitHub, we will use the Manual deploy section and click Deploy Branch. This will start the build process. When finished, it should look something like this
+
+- Now, we have our project in place, and we have an empty database ready for use. As you may remember from our local development, we still need to add our tables to our database. To do this, we can click the “More” button and select “Run console”
+
+- Type python3 into the console and click Run
+
+from budgetpal import db
+db.create_all()
+
+- Exit the Python terminal, by typing exit() and hitting enter, and close the console. Our Heroku database should now have the tables and columns created from our models.py file.
+
+- The app should be up and running now, so click the “Open app” button
+
+- Your deployed app will load, but as your new database is empty there won’t be any categories or tasks displayed yet.
+
+Test that you can Create, Read, Update and Delete both the Categories and Tasks for this application.
+
+- Congratulations! You have successfully deployed your app to Heroku!
 
 ### Local Development
-
-The local development section gives instructions on how someone else could make a copy of your project to play with on their local machine. This section will get more complex in the later projects, and can be a great reference to yourself if you forget how to do this.
 
 #### How to Fork
 
@@ -335,11 +448,11 @@ I have created the full testing documentation which collects all the information
 
 ## Credits
 
-* [ChatGpt](https://openai.com/blog/chatgpt "free text generator AI") was used for some debugging,
-spell checking and looking up functions like how to assemble a timer and etc.
-* [Online tutorial](https://betterprogramming.pub/a-detailed-guide-to-user-registration-login-and-logout-in-flask-e86535665c07 "Tutorial for Flask-login") Was used for creating the registration login and logout functionality using Flask-login.
-* [Online documentations](https://www.w3schools.com/ "online documentation for html") was used for researching html css and javaScript elements, properties, attributes and functions.
-* [Google](https://www.google.com/ "I think I do not have to introduce google") was used for researching.
+- [ChatGpt](https://openai.com/blog/chatgpt "free text generator AI") was used for some debugging,
+  spell checking and looking up functions like how to assemble a timer and etc.
+- [Online tutorial](https://betterprogramming.pub/a-detailed-guide-to-user-registration-login-and-logout-in-flask-e86535665c07 "Tutorial for Flask-login") Was used for creating the registration login and logout functionality using Flask-login.
+- [Online documentations](https://www.w3schools.com/ "online documentation for html") was used for researching html css and javaScript elements, properties, attributes and functions.
+- [Google](https://www.google.com/ "I think I do not have to introduce google") was used for researching.
 
 ### Code Used
 
@@ -355,5 +468,5 @@ I have made / downloaded the media myself using the sources I have highighted be
 
 ###  Acknowledgments
 
-* Jubril Akolade - came up with some things I'd have easily missed and was a really good and professional guide.
-* Callum Jones - for turning up consistently and offering helpful advice and tips and kept track on my journey.
+- Jubril Akolade - came up with some things I'd have easily missed and was a really good and professional guide.
+- Callum Jones - for turning up consistently and offering helpful advice and tips and kept track on my journey.
