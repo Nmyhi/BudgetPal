@@ -1,11 +1,11 @@
 {% extends "base.html" %}{% block content %}
 <!-- Add expense form -->
 <h3>Add Expense</h3>
-<div class="row card-panel grey lighten-5">
+<div class="row card-panel grey darken-3">
   <form class="col s12" method="POST" action="{{ url_for('add_expense') }}">
     <!-- Expense amount -->
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s12 ">
         <i class="fa-solid fa-money-bill-1 prefix light-blue-text text-darken-4"></i>
         <input id="expense_amount" name="expense_amount" minlength="1" maxlength="25" type="text" class="validate" required />
         <label for="expense_amount">Expense amount</label>

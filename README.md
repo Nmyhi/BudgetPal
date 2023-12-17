@@ -209,6 +209,29 @@ The home page welcome the user logged in or ask the user to log in if there is n
 - User logged out:
   ![User logged out home screen](/budgetpal/static/images/homepage_user_logged_out.png)
 
+- User Page:
+
+The user pages displays the user's balance Savings and expenses when the user is logged in and showing the control buttons as well. The user can edit delete and add expenses and income, savings and add new categories:
+
+- User page logged in:
+  ![User logged in userpage](/budgetpal/static/images/userpage_logged_in.png)
+
+- expenses form:
+  ![expenses form](/budgetpal/static/images/expense_form.png)
+- Userpage logged out:
+  ![User logged out in userpage](/budgetpal/static/images/userpage_logged_out.png)
+- Login page:
+
+The login page is accessible from the navbar if a user is not logged in. If a user is logged in the navbar displays the logout option only:
+
+- Login page user logged out:
+  ![Login page](/budgetpal/static/images/login_page_user_not_logged_in.png)
+
+- Registration page:
+
+The resistration page is always accessible in case the user wants to register a new account
+![Registration page](/budgetpal/static/images/registration_page.png)
+
 ### Future Implementations
 
 What features would you like to implement in the future on your site? Would you like to add more pages, or create login functionality? Add these plans here.

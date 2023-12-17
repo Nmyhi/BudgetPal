@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
+<h1>Login Page</h1>
 <!-- login page template -->
-<h1><a href="{{ url_for('register') }}">Create a new Account!</a></h1>
 <form action="" method="post">
   {{ form.hidden_tag() }}
   <div>
@@ -19,6 +19,7 @@
   <p>{{ form.remember() }} {{ form.remember.label }}</p>
   <p>{{ form.submit(style ='background-color: #4CAF50; color: white; width: 50%; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px') }}</p>
 </form>
+<h1><a href="{{ url_for('register') }}">Need an account? Create a new Account!</a></h1>
 {% for message in get_flashed_messages() %}
 <p style="color: red">Error : {{ message }}</p>
 {% endfor %} {% endblock%}
