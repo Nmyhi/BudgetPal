@@ -234,25 +234,28 @@ The resistration page is always accessible in case the user wants to register a 
 
 ### Future Implementations
 
-What features would you like to implement in the future on your site? Would you like to add more pages, or create login functionality? Add these plans here.
+* Send registration credentials to the user via email after registration
+* Group expenses together by months
+* Show graphs of the expenses by categories to understand spending habits more.
+* Display goals and the goals progress using the saings budget.
 
 ### Accessibility
 
-Be an amazing developer and get used to thinking about accessibility in all of your projects!
+I have been mindful during coding to ensure that the website is as accessible friendly as possible. I have achieved this by:
 
-This is the place to make a note of anything you have done with accessibility in mind. Some examples include:
-
-Have you used icons and added aria-labels to enable screen readers to understand these?
-Have you ensured your site meets the minimum contrast requirements?
-Have you chosen fonts that are dyslexia/accessible friendly?
-
-Code Institute have an amazing channel for all things accessibility (a11y-accessibility) I would highly recommend joining this channel as it contains a wealth of information about accessibility and what we can do as developers to be more inclusive.
+* Using semantic HTML.
+* Using descriptive alt attributes on images on the site.
+* Ensuring that there is a sufficient colour contrast throughout the site.
+* Ensuring menus are accessible.
+* Using rel attributes on the anchor tags.
 
 ## Technologies Used
 
 ### Languages Used
 
 HTML, CSS, Javascript, Python were used to create this website.
+I used Flask login method and jinja2 language and templating.
+The database is PSQL.
 
 ### Frameworks, Libraries & Programs Used
 
@@ -270,6 +273,10 @@ Font Awesome - For the iconography on the website.
 
 Google Dev Tools - To troubleshoot and test features, solve issues with responsiveness and styling.
 
+Heroku - To deploy the project.
+
+Elephant SQL - To host my database.
+
 [ChatGpt](https://chat.openai.com/) To debug and ask about flask syntask and solutions.
 
 [Tiny PNG](https://tinypng.com/) To compress images.
@@ -283,6 +290,10 @@ Google Dev Tools - To troubleshoot and test features, solve issues with responsi
 [Materialize 1.0.0](https://materializecss.com/) To develop front end appearence using pre-coded CSS.
 
 [Flaticon](https://www.flaticon.com/) To download nice png icons. Flaticon allows you to download entire icon packs in various styles. You can filter by category, style, and color to find the pack that suits your needs.
+
+[Logomakr](https://logomakr.com/) To create the brand logo.
+
+[Freepik](https://www.freepik.com) To downloag images for the categories.
 
 ---
 
@@ -300,38 +311,49 @@ The local development section gives instructions on how someone else could make 
 
 #### How to Fork
 
-Place instructions on how to fork your project here.
+To fork the Nmyhi/cogniCraft repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, Nmyhi/cogniCraft.
+3. Click the Fork button in the top right corner.
 
 #### How to Clone
 
-Place instructions on how to clone your project here.
+To clone the Nmyhi/cogniCraft:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, Nmyhi/cogniCraft.
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
 ## Testing
 
-Start as you mean to go on - and get used to writing a TESTING.md file from the very first project!
+Testing was ongoing throughout the entire build. I utilised Chrome developer tools while building to pinpoint and troubleshoot any issues as I went along.
 
-Testing requirements aren't massive for your first project, however if you start using a TESTING.md file from your first project you will thank yourself later when completing your later projects, which will contain much more information.
-
-Use this part of the README to link to your TESTING.md file - you can view the example TESTING.md file [here](milestone1-testing.md)
+I have created the full testing documentation which collects all the information into a test sheet. [Testing documentation](TESTING.md)
 
 ## Credits
 
-👩🏻‍💻 View an example of a completed Credits section [here](https://github.com/kera-cudmore/BookWorm#Credits)
-
-[Readme template](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md?plain=1)
+* [ChatGpt](https://openai.com/blog/chatgpt "free text generator AI") was used for some debugging,
+spell checking and looking up functions like how to assemble a timer and etc.
+* [Online tutorial](https://betterprogramming.pub/a-detailed-guide-to-user-registration-login-and-logout-in-flask-e86535665c07 "Tutorial for Flask-login") Was used for creating the registration login and logout functionality using Flask-login.
+* [Online documentations](https://www.w3schools.com/ "online documentation for html") was used for researching html css and javaScript elements, properties, attributes and functions.
+* [Google](https://www.google.com/ "I think I do not have to introduce google") was used for researching.
 
 ### Code Used
 
-If you have used some code in your project that you didn't write, this is the place to make note of it. Credit the author of the code and if possible a link to where you found the code. You could also add in a brief description of what the code does, or what you are using it for here.
+In the project I used small code blocks from the online documentations and other resources I have highlighted in the credits section as well.
 
 ### Content
 
-Who wrote the content for the website? Was it yourself - or have you made the site for someone and they specified what the site was to say? This is the best place to put this information.
+I have made the project myself.
 
 ###  Media
 
-If you have used any media on your site (images, audio, video etc) you can credit them here. I like to link back to the source where I found the media, and include where on the site the image is used.
+I have made / downloaded the media myself using the sources I have highighted before.
 
 ###  Acknowledgments
 
-If someone helped you out during your project, you can acknowledge them here! For example someone may have taken the time to help you on slack with a problem. Pop a little thank you here with a note of what they helped you with (I like to try and link back to their GitHub or Linked In account too). This is also a great place to thank your mentor and tutor support if you used them.
+* Jubril Akolade - came up with some things I'd have easily missed and was a really good and professional guide.
+* Callum Jones - for turning up consistently and offering helpful advice and tips and kept track on my journey.
