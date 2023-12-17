@@ -161,13 +161,13 @@ Additional testing was taken by friends and family on a variety of devices and s
 
 ### Known Bugs
 
-There is no known bugs at the moment.
+- On the login page the remember me has bo be clicked on however after the click it is not visible
 
 ### Solved Bugs
 
-- The username window input did not have a whitespace validation.
-- The username window input had no characters limit.
-- The username window was not responsive enough.
-- The game did not store the high score data.
+- Flask- login issues
+- category logo url issues
+- responsive design issues
+- model issues
 
 All of these bugs have been resolved during developement and commits have been created.
