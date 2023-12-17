@@ -23,11 +23,11 @@ An expenses manager app is a powerful tool designed to help you take control of 
       * [Frequent Visitor Goals](#frequent-visitor-goals)
   * [Design](#design)
   * [Database](#database)
-  * [Front-end](#front-end)
     * [Colour Scheme](#colour-scheme)
     * [Typography](#typography)
     * [Imagery](#imagery)
     * [Wireframes](#wireframes)
+    * [Desktop view wireframes](#desktop-view-wireframes)
   * [Features](#features)
     * [General features on each page](#general-features-on-each-page)
     * [Future Implementations](#future-implementations)
@@ -50,8 +50,6 @@ An expenses manager app is a powerful tool designed to help you take control of 
 ---
 
 ## User Experience (UX)
-
-👩🏻‍💻 View an example of a completed user experience section [here](https://github.com/kera-cudmore/Bully-Book-Club#user-experience-ux)
 
 ### Initial Discussion
 
@@ -114,17 +112,13 @@ The project was inspired by a personal issue which is to manage my personal expe
 
 - [Database design considerations](/database_readme.md)
 
-## Front-end
-
-- Front end design considerations
-
-[Front end design link](#)
-
 ### Colour Scheme
 
-Add all information about your colour scheme for your site here. You can explain why you choose the colours you did?
+I have chosen a vibrant colour sceme for this project and tried to make it interesting.
 
 I like to include a palette of the colour scheme here, my favourite site for creating a colour palette is [coolors](https://coolors.co/), but there are lots of other sites that also do the same thing, like [ColorSpace](https://mycolor.space/?hex=%23F5F5F5&sub=1), [Muzli Colors](https://colors.muz.li/), [Adobe Colour Wheel](https://color.adobe.com/create/color-wheel) and [Canva](https://www.canva.com/colors/color-palette-generator/) to name a few.
+
+![Colour Scheme](/budgetpal/static/images/colour_scheme.png).
 
 ### Typography
 
@@ -136,22 +130,47 @@ I chose for this font family because I think it appeares to be something fit wel
 I think it is an accessible friendly font because the characters are uppercase and easy to read.
 I used font-weight 400.
 
-[image link]()
+![image link](/budgetpal/static/images/fontfamily.png)
 
 [Google Fonts](https://fonts.google.com/) is a popular choice for importing fonts to use in your project, as it doesn't require you to download the fonts to use them.
 
 ### Imagery
 
-Use this section to explain what sort of imagery you plan to use through your site.
+I used colourful icon images for this project for the categories and a logo generator for my brand logo.
+I used a favicon crator for my favicon.
+
+![Brand Logo](/budgetpal/static/images/budgetpallogo.png)
+
+[Favicon creator](https://favicon.io/)
+[Logo Maker](https://logomakr.com/)
+[Free Icons](https://www.freepik.com)
 
 ### Wireframes
 
-Add the images or links for your wireframes here.
+
+Desktop view wireframes:
+
+[Main Menu](assets/images/readme/desktopmainmenuwireframe.png)
+
+[Game](assets/images/readme/desktopgamewindowwireframe.png)
+
+[Hi-Scores](assets/images/readme/desktophiscoreswireframe.png)
+
+[Help](assets/images/readme/desktophelpwireframe.png)
+
+Mobile and tablet view wireframes:
+
+[Main Menu](assets/images/readme/mobilemainmenuwireframe.png)
+
+[Game](assets/images/readme/mobilegamewindowwireframe.png)
+
+[Hi-Scores](assets/images/readme/mobilehiscoreswireframe.png)
+
+[Help](assets/images/readme/mobilehelpwireframe.png)
 
 There are lots of different options to create your wireframes - Code Institute students can access [Balsamiq](https://balsamiq.com/) as part of the course.
 
-Some other options include [Figma](https://www.figma.com/), [AdobeXD](https://www.adobe.com/products/xd.html), [Sketch](https://www.sketch.com/?utm_source=google&utm_medium=cpc&adgroup=uxui&device=c&matchtype=e&utm_campaign=ADDICTMOBILE_SKETCH_GAD_DG_UK_T1_ALWAYS-ON_S_TRF_PROS_BRAND&utm_term=sketch&utm_source=google&utm_medium=cpc&utm_content=TOF_BRND__generic&hsa_acc=8710913982&hsa_cam=16831089317&hsa_grp=134620695759&hsa_ad=592060065319&hsa_src=g&hsa_tgt=kwd-14921750&hsa_kw=sketch&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwr4eYBhDrARIsANPywCjRIFn93DMezYnsyE5Fic_8l8kynJtut0GYMU01TiohHjwziFtlH0gaAhteEALw_wcB) and [Mockup](https://apps.apple.com/us/app/mockup-sketch-ui-ux/id1527554407) to name just a few! Or you can even go old school and get those wireframes completed using pen and paper. Just snap an image of the completed wireframes to add the images to the README.
-
+Some other options include [Figma](https://www.figma.com/), [AdobeXD](https://www.adobe.com/products/xd.html), [Sketch](https://www.sketch.com/?utm_source=google&utm_medium=cpc&adgroup=uxui&device=c&matchtype=e&utm_campaign=ADDICTMOBILE_SKETCH_GAD_DG_UK_T1_ALWAYS-ON_S_TRF_PROS_BRAND&utm_term=sketch&utm_source=google&utm_medium=cpc&utm_content=TOF_BRND__generic&hsa_acc=8710913982&hsa_cam=16831089317&hsa_grp=134620695759&hsa_ad=592060065319&hsa_src=g&hsa_tgt=kwd-14921750&hsa_kw=sketch&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwr4eYBhDrARIsANPywCjRIFn93DMezYnsyE5Fic_8l8kynJtut0GYMU01TiohHjwziFtlH0gaAhteEALw_wcB) and [Mockup](https://apps.apple.com/us/app/mockup-sketch-ui-ux/id1527554407) to name just a few! Or you can even go old school and get those wireframes completed using pen and paper. Just snap an image of the completed wireframes to add the images to the R
 ## Features
 
 👩🏻‍💻 View an example of a completed user experience section [here](https://github.com/kera-cudmore/TheQuizArms#Features)

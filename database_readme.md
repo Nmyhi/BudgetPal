@@ -1,4 +1,4 @@
-# Expense Manager App Database Design
+# BudgetPal Database Design
 
 ## Overview
 
@@ -6,7 +6,7 @@ This database design is for an Expense Manager application that helps users trac
 
 ## Table of Contents
 
-* [Expense Manager App Database Design](#expense-manager-app-database-design)
+* [BudgetPal Database Design](#budgetpal-database-design)
   * [Overview](#overview)
   * [Table of Contents](#table-of-contents)
   * [Database Schema](#database-schema)
