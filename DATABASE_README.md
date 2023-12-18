@@ -2,7 +2,11 @@
 
 ## Overview
 
-This database design is for an Expense Manager application that helps users track and manage their expenses. The application includes user authentication, expense tracking, and predefined expense categories.
+This database design is for Budgetpal expenses manager application that helps users track and manage their expenses. The application includes user authentication, expense tracking, and predefined expense categories.
+
+![App Preview](/budgetpal/static/images/amiresponsive.png)
+
+[Live link](https://budgetpal-33d89df1b1a4.herokuapp.com)
 
 ## Table of Contents
 

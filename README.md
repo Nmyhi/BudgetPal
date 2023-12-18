@@ -3,9 +3,9 @@
 Welcome to BudgetPal!
 An expenses manager app is a powerful tool designed to help you take control of your financial well-being by effortlessly organizing and tracking your spending. Whether you are a meticulous budgeter or just want to gain a clearer understanding of your financial habits, this app is tailored to simplify the process of managing your expenses.
 
-[App Preview](#)
+![App Preview](/budgetpal/static/images/amiresponsive.png)
 
-[Live link](#)
+[Live link](https://budgetpal-33d89df1b1a4.herokuapp.com)
 
 ---
 
@@ -456,8 +456,6 @@ I have created the full testing documentation which collects all the information
 
 ## Credits
 
-- [ChatGpt](https://openai.com/blog/chatgpt "free text generator AI") was used for some debugging,
-  spell checking and looking up functions like how to assemble a timer and etc.
 - [Online tutorial](https://betterprogramming.pub/a-detailed-guide-to-user-registration-login-and-logout-in-flask-e86535665c07 "Tutorial for Flask-login") Was used for creating the registration login and logout functionality using Flask-login.
 - [Online documentations](https://www.w3schools.com/ "online documentation for html") was used for researching html css and javaScript elements, properties, attributes and functions.
 - [Google](https://www.google.com/ "I think I do not have to introduce google") was used for researching.

@@ -2,25 +2,25 @@
 
 This is a memory game web application which is fully responsive. This site has been built to showcase my initial javaScript skills as my very first JavaScript code!
 
-![Am I responsive]()
+![App Preview](/budgetpal/static/images/amiresponsive.png)
 
-[View BudgetPal on Heroku ]()
+[Live link](https://budgetpal-33d89df1b1a4.herokuapp.com)
 
 ---
 
 ## CONTENTS
 
-* [BugetPal - TESTING](#bugetpal---testing)
-  * [CONTENTS](#contents)
-  * [AUTOMATED TESTING](#automated-testing)
-    * [ PEP8 validation](#pep8-validation)
-    * [Lighthouse](#lighthouse)
-  * [MANUAL TESTING](#manual-testing)
-    * [Testing User Stories](#testing-user-stories)
-    * [Full Testing](#full-testing)
-  * [BUGS](#bugs)
-    * [Known Bugs](#known-bugs)
-    * [Solved Bugs](#solved-bugs)
+- [BugetPal - TESTING](#bugetpal---testing)
+  - [CONTENTS](#contents)
+  - [AUTOMATED TESTING](#automated-testing)
+    - [PEP8 validation](#pep8-validation)
+    - [Lighthouse](#lighthouse)
+  - [MANUAL TESTING](#manual-testing)
+    - [Testing User Stories](#testing-user-stories)
+    - [Full Testing](#full-testing)
+  - [BUGS](#bugs)
+    - [Known Bugs](#known-bugs)
+    - [Solved Bugs](#solved-bugs)
 
 ---
 
@@ -28,7 +28,7 @@ This is a memory game web application which is fully responsive. This site has b
 
 The automated Testing includes all the testing that is carried out by test code like jest, W3C HTML, and CSS validation.
 
-###  PEP8 validation
+### PEP8 validation
 
 [init_py_validation](/budgetpal/static/images/init_py_validation.png)
 [run_py_vlidation](/budgetpal/static/images/run_py_validation.png)
@@ -40,11 +40,21 @@ The automated Testing includes all the testing that is carried out by test code 
 
 I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website.
 
-- Index Page mobile view
-  ! The Index page Lighthouse results can be found here [Index Page Lighthouse mobile view](assets/images/readme/lighthousemobile.png)
+- Home page test
+  [Home Page Lighthouse desktop view](/budgetpal/static/images/homepage_desktop_lighthouse.png)
+  [Home Page Lighthouse mobile view](/budgetpal/static/images/homepage_mobile_lighthouse.png)
 
-- Index Page desktop view
-  ! The Index page Lighthouse results can be found here [Index Page Lighthouse desktop view](assets/images/readme/lighthousedesktop.png)
+- User Page test
+  [User Page Lighthouse desktop view](/budgetpal/static/images/userpage_desktop_lighthouse.png)
+  [User Page Lighthouse mobile view](/budgetpal/static/images/userpage_mobile_lighthouse.png)
+
+- Login page test
+  [Login Page Lighthouse desktop view](/budgetpal/static/images/loginpage_desktop_lighthouse.png)
+  [Login Page Lighthouse mobile view](/budgetpal/static/images/loginpage_mobile_lighthouse.png)
+
+- Register page test
+  [Register Page Lighthouse desktop view](/budgetpal/static/images/registerpage_desktop_lighthouse.png)
+  [Register Page Lighthouse mobile view](/budgetpal/static/images/registerpage_mobile_lighthouse.png)
 
 ## MANUAL TESTING
 
